@@ -1,1 +1,138 @@
-blaah
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Projet Final</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            h2, p{
+                margin: 10px;
+                }
+            /*Style de barre de navigation*/
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                background-color: #990909;
+                display: flex;
+                justify-content: center;
+            }
+            /*Couleur de texte dans la barre de navigation*/
+            ul li a {
+                display: block;
+                color: white;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            /**/
+            ul li a:hover {
+                background-color: #7e0c0c;
+            }
+            
+            .dropdown {
+                position: relative;
+            }
+
+            /* Style du bouton Dropdown */
+            .dropbtn {
+            background-color: #990909;
+            color: white;
+            padding: 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            }
+
+            /*choses dans le dropdown */
+            .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #740808;
+            min-width: 50px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+
+            /* Links inside dropdown content */
+            .dropdown-content a {
+            color: rgb(255, 255, 255);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            }
+
+            /* Change color of dropdown links on hover */
+            .dropdown-content a:hover {
+            background-color: #ff0303
+            }
+
+            /* Show the dropdown content on hover */
+            .dropdown:hover .dropdown-content {
+            display: block;
+            }
+
+            /* Change background color of dropdown button on hover */
+            .dropdown:hover .dropbtn {
+            background-color: #6d1212;
+            }
+            .dropdown-content {
+            left: 0px;
+            }
+
+            div{
+                background-color: #ad2525;
+                width: 150px;
+                border: 5px solid #ffffff;
+                padding: 50px;
+                margin: 20px;
+            }
+        </style>
+	</head>
+	<body style="background-color: #32b3eb;">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+            
+                <li class="dropdown">
+                    <button class="dropbtn">4x4</button>
+                    <div class="dropdown-content">
+                        <center><a href="facile.html">Facile</a></center>
+                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
+                        <center><a href="difficile.html">Difficile</a></center>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <button class="dropbtn">9x9</button>
+                    <div class="dropdown-content">
+                        <center><a href="facile.html">Facile</a></center>
+                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
+                        <center><a href="difficile.html">Difficile</a></center>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <button class="dropbtn">?x?</button>
+                    <div class="dropdown-content">
+                        <center><a href="facile.html">Facile</a></center>
+                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
+                        <center><a href="difficile.html">Difficile</a></center>
+                    </div>
+                </li>
+            </ul>
+        
+        <h1><center>Sudoku du Noel</center></h1>
+        <br>
+        <p><h3><center>Bonne journée! Dans cette saison de Noel, il est important d'avoir le fun. Donc, on a décidé de te faire un petit jeu de sudoku! On espère que tu aime.</center></h3></p> 
+        <br>
+        <center><img src="images/DessinSoduko.png" width="80%"/></center>
+        <br>
+        <h2>Choisi un niveau:</h2>
+    
+        <center><h4>Allez! On espère que tu réussi...</h4></center>
+        
+
+    </body>
+</html>
+
