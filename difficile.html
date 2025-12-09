@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Projet Final</title>
+		<title>Projet Final - Test</title>
         <style>
             body{
                 margin: 0;
@@ -121,5 +121,131 @@
                     </div>
                 </li>
             </ul>
+        <br><br><br><br><br>
+
+        <center><table>
+            <tr>
+                <td><center>🎄</center></td>
+                <td><center><select id="case1">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                </select></center></td>
+                <td><center><select id="case2">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                    </select></center></td>
+                <td><center>🎁</center></td>
+            </tr>
+
+            <tr>
+                <td><center><select id="case3">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                    </select></center></td>
+                <td><center><select id="case4">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                    </select></center></td>
+                <td><center>🥛</center></td>
+                <td><center><select id="case5">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                </select></center></td>
+            </tr>
+
+            <tr>
+                <td><center><select id="case6">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                    </select></center></td>
+                <td><center>🍪</center></td>
+                <td><center>🎄</center></td>
+                <td><center><select id="case7">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                </select></center></td>    
+            </tr>
+            <tr>
+                <td><center><select id="case8">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                </select></center></td>
+                <td><center><select id="case9">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                </select></center></td>
+                <td><center><select id="case10">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                </select></center></td>
+                <td><center><select id="case11">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                </select></center></td>
+            </tr>
+        </table></center>
+
+        <br><br>
+        <center><button onclick="verifierSolution()">Vérifier la solution</button></center>
+        <center><div id="divAffiche"></div></center>
+
+
+        <script>
+        function entreeValides() {
+            const solutions = ["🥛", "🍪", "🍪", "🎁", "🎄", "🎁", "🥛", "🥛", "🎄", "🎁", "🍪" ];
+            for (let i = 0; i < solutions.length; i++) {
+            const caseId = "case" + (i + 1);
+            const userChoice = document.getElementById(caseId).value;
+            if (userChoice !== solutions[i]) {
+                return false;
+            }
+            }
+            return true;
+        }
+
+        function verifierSolution() {
+            var affiche = document.getElementById("divAffiche");
+            if (entreeValides()) {
+            message = "Félicitations ! Vous avez résolu le puzzle !";
+            } else {
+            message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            }
+            affiche.innerHTML = message;
+        }
+
+        </script>
     </body>
 </html>
