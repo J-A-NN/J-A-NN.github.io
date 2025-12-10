@@ -8,10 +8,13 @@
                 margin: 0;
                 padding: 0;
             }
+
+            /*Trucs de la barre de navigation*/
             h2, p{
                 margin: 10px;
                 }
             
+                /*Style de la barre*/
             ul {
                 list-style-type: none;
                 margin: 0;
@@ -20,7 +23,7 @@
                 display: flex;
                 justify-content: center;
             }
-
+            /*Couleur du texte dans la barre*/
             ul li a {
                 display: block;
                 color: white;
@@ -28,6 +31,7 @@
                 text-decoration: none;
             }
 
+            /*Couleur quand tu clique un élément sur la barre*/
             ul li a:hover {
                 background-color: #080336;
             }
@@ -55,7 +59,7 @@
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             }
 
-            /* Links inside dropdown content */
+            /*liens*/
             .dropdown-content a {
             color: rgb(255, 255, 255);
             padding: 12px 16px;
@@ -81,6 +85,7 @@
             left: 0px;
             }
 
+            /*Une boîte*/
             div{
                 background-color: #962d0d;
                 width: 150px;
@@ -88,13 +93,21 @@
                 padding: 20px;
                 margin: 20px;
             }
-
+            /*l'arrière-plan*/
             body {
                 background-image: url(images/ChristmasBackground.jpg);
             }
+
+
         </style>
 	</head>
-	<body style="background-color: #32b3eb;">
+	<body>
+
+        <!--Background Music-->
+        <audio autoplay loop>
+            <source src="christmas-443109.mp3" type="audio/mpeg">
+        </audio>
+        <!--Barre de navigation-->
          <ul>
                 <li><a href="index.html">Accueil</a></li>
             
@@ -126,22 +139,32 @@
                 </li>
             </ul>
         
+        <!--Couleur de texte-->
         <h1 style ="color: #ffd700"><center>Sudoku du Noel</center></h1>
         
         <br>
+        <!--Couleur de texte-->
         <h3 style ="color: #ffffff"><center>Bonne journée! Dans cette saison de Noel, il est important d'avoir le fun. Donc, on a décidé de te faire un petit jeu de sudoku! On espère que tu aime.</center></h3>
         <br>
-        <center><img src="images/DessinSoduko.png" width="80%"/></center>
+        <!--Image du sudoku-->
+        <center><img src="images/DessinSoduko.png" width="60%"/></center>
         <br>
-        <h2>Choisi un niveau:</h2>
-        <div>
-            <b><center>Facile</center></b>
-        </div>
 
     
-        <center><h4>Allez! On espère que tu réussi...</h4></center>
+        <center><h4 style="color: #ffffff">Allez! On espère que tu réussi...</h4></center>
         
-
+        <div>
+            <center><a href="facile.html">Facile</a></center>
+            <p>Un petit chose pour t'amuser mais pas trop difficile</p>
+        </div>
+        <div>
+            <center><a href="intermédiaire.html">Intermédiaire</a></center>
+            <p>Un petit chose pour t'amuser mais pas trop difficile</p>
+        </div>
+        <div>
+            <h3><center>Difficile</center></h3>
+            <p>Un petit chose pour t'amuser mais pas trop difficile</p>
+        </div>
     </body>
 </html>
 
