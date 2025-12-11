@@ -138,6 +138,61 @@
             button:hover {
                 background-color: #a61f1f;
             }
+.sudoku-grid {
+    border-collapse: collapse; /* Essential for borders to merge into single lines */
+    border: 3px solid black;   /* Thick outer boundary for the whole grid */
+    margin: 20px auto;         /* Center the table on the page */
+}
+
+.sudoku-grid td {
+    /* Set cell dimensions large enough for the select box */
+    width: 60px;
+    height: 45px;
+    
+    /* Default thin inner border */
+    border: 1px solid #bbb;
+    
+    text-align: center;
+    padding: 0; /* Remove default cell padding */
+}
+
+/* Style the dropdown list itself so it fits neatly */
+.sudoku-grid select {
+    width: 80px;
+    height: 80px;
+    border: none; /* Remove the default border from the select element */
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 35px; /* Make the emojis visible */
+}
+
+/* --- Prominent Borders using CSS pseudo-classes --- */
+
+/* Thicker bottom border for the 3rd and 6th rows (tr:nth-child(3), tr:nth-child(6)) */
+.sudoku-grid tr:nth-child(3n) td {
+    border-bottom: 3px solid black;
+}
+
+/* Thicker right border for the 3rd and 6th columns (td:nth-child(3), td:nth-child(6)) */
+.sudoku-grid td:nth-child(3n) {
+    border-right: 3px solid black;
+}
+
+/* Fix: Ensure the *very last* row (row 9) and *very last* column (col 9) use the thin border internally, 
+   as the thick outer table border handles the edge */
+.sudoku-grid tr:nth-child(9n) td {
+    border-bottom: 1px solid #a3a3a3;
+}
+
+.sudoku-grid td:nth-child(9n) {
+    border-right: 1px solid #b3b3b3;
+}
+#scoreDisplay {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
         </style>
 	</head>
     <body style="background-color: #32b3eb;">
@@ -173,7 +228,11 @@
             </ul>
         <br><br><br><br><br>
 
-        <center><table>
+
+<h3>Score: <span id="scoreDisplay">0</span></h3>
+
+
+        <center><table id="sudoku-board" class="sudoku-grid">
             <tr>
                 <td><center><select id="case1">
                     <option></option>
@@ -939,12 +998,111 @@
             var affiche = document.getElementById("divAffiche");
             if (entreeValides()) {
             message = "Félicitations ! Vous avez résolu le puzzle !";
+            updateScore(1000)
             } else {
             message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            updateScore(-500)
             }
             affiche.innerHTML = message;
         }
+function styleSudokuBorders() {
+    const table = document.getElementById('sudoku-board');
+    if (!table) return;
 
+    for (let i = 0; i < 9; i++) {
+      for (let j = 0; j < 9; j++) {
+        // Get the cell at row i, column j
+        const cell = table.rows[i].cells[j];
+
+        // Apply a thicker bottom border to the 3rd and 6th rows
+        if ((i + 1) % 3 === 0 && i !== 8) {
+          cell.style.borderBottom = '3px solid black';
+        }
+
+        // Apply a thicker right border to the 3rd and 6th columns
+        if ((j + 1) % 3 === 0 && j !== 8) {
+          cell.style.borderRight = '3px solid black';
+        }
+      }
+    }
+  }
+  styleSudokuBorders();
+
+
+let score = 0;
+
+const scoreDisplay = document.getElementById("scoreDisplay");
+
+function updateScore(points) {
+  score += points; 
+  scoreDisplay.innerHTML = score; 
+}
         </script>
+<script>
+const questions = [
+    {
+question: "Écris le théorème de pythagore",
+answer: "a²+b²= c²"
+    },
+    {
+question: "Dans un triangle rectangle, il y a toujours un angle de ? degré",
+answer: "90"
+    },
+    {
+question: "Trouve X: 12²x -2 = 24x + 16",
+answer: "3"
+    },
+{
+question:"Pluto, est t'il un planet?",
+answer: "Non"
+
+},
+{
+question:"Quelle est l'élément au période 1 et le groupe 1 dans le tableau périodique?",
+answer: "Hydrogène"
+},
+{
+question:"Proton, électron et ?",
+answer: "Neutron"
+},
+{
+question:"Trouve le type du subordonnée circonstancielle: Dès que l’examen a commencé, ça a stressé beaucoup de gens",
+answer: "Temps"
+},
+{
+question:"Vrai ou Faux: (y,x)",
+answer: "Faux"
+},
+{
+question:"Qui a découervt la gravité?:",
+answer: "Isaac Newton"
+},
+{
+question:"Ca veut dire quoi le S dans PPS (participe passé):",
+answer: "Seul"
+},
+  ];
+
+//https://www.programiz.com/javascript/examples/get-random-item#:~:text=Example:%20Get%20Random%20Item%20From%20an%20Array&text=In%20the%20above%20program%2C%20a,access%20a%20random%20array%20element. 
+
+function trouveQuestionAuhazard() {
+{
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    return questions[randomIndex];
+}
+}
+
+function donneQuestion(){
+const questionChoisis = trouveQuestionAuhazard(questions);
+let réponse = prompt(questionChoisis.question);
+
+if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase()) {
+    updateScore(500)
+} else{
+    updateScore(-250)
+}
+}
+
+</script>
     </body>
 </html>
