@@ -173,7 +173,11 @@
             </ul>
         <br><br><br><br><br>
 
-<h3>Score: <d id="afficheScore">0 </d></h3>
+
+<p> HighScore: <d id="afficheHighScore">0 </d></p>
+<p> Score: <d id="afficheScore">0 </d></p>
+
+
 
         <center><table>
             <tr>
@@ -295,25 +299,58 @@
                         return false;       
         }
 
-        function verifierSolution() {
-            let affiche = document.getElementById("divAffiche");
+       function verifierSolution() {
             if (entreeValide()) {
-            affiche.innerHTML = "Félicitations! Vous avez résolu le puzzle!";
-            montreScore(1000)
+            document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
+            addScore(1000)
             } else {
-            affiche.innerHTML = "Puzzle incorrect, essaye encore! ";
-            montreScore(-500)
+            document.getElementById("divAffiche").innerHTML = "Puzzle incorrect, essaye encore! ";
+            addScore(-500)
             }
+           
         }
 
 
         let score = 0
-
+/*
         function montreScore(pointage){
-            score = score + pointage
+            score =  score + pointage
             afficheScore.innerHTML = score;
+            return score
         }
 
+*/
+
+
+let highScore = parseInt(localStorage.getItem('afficheHighScore')) || 0;
+
+
+const scoreEl = document.getElementById('afficheScore');
+const highScoreEl = document.getElementById('afficheHighScore');
+
+// show starting values
+scoreEl.innerText = score;
+highScoreEl.innerText = highScore;
+
+// function to add to the score
+function addScore(points) {
+  score += points;
+  scoreEl.innerText = score;
+  updateHighScore();
+}
+
+// function to update high score if needed
+function updateHighScore() {
+  if (score > highScore) {
+    highScore = score;
+    highScoreEl.innerText = highScore;
+    localStorage.setItem('afficheHighScore', highScore);
+  }
+}
+
+        
+        
+ 
         </script>
     </body>
 </html>
