@@ -193,9 +193,15 @@
   color: #333;
   font-weight: bold;
 }
+body {
+    background-image: url(https://img.freepik.com/free-photo/christmas-background-with-gifts-baubles_1048-3438.jpg?semt=ais_hybrid&w=740&q=80);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
         </style>
 	</head>
-    <body style="background-color: #32b3eb;">
+    <body>
         <ul>
                 <li><a href="index.html">Accueil</a></li>
             
