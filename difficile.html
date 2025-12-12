@@ -302,53 +302,22 @@
        function verifierSolution() {
             if (entreeValide()) {
             document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
-            addScore(1000)
+            montreScore(1000)
             } else {
             document.getElementById("divAffiche").innerHTML = "Puzzle incorrect, essaye encore! ";
-            addScore(-500)
+            montreScore(-500)
             }
            
         }
 
 
         let score = 0
-/*
+
         function montreScore(pointage){
             score =  score + pointage
             afficheScore.innerHTML = score;
             return score
-        }
-
-*/
-
-
-let highScore = parseInt(localStorage.getItem('afficheHighScore')) || 0;
-
-
-const scoreEl = document.getElementById('afficheScore');
-const highScoreEl = document.getElementById('afficheHighScore');
-
-// show starting values
-scoreEl.innerText = score;
-highScoreEl.innerText = highScore;
-
-// function to add to the score
-function addScore(points) {
-  score += points;
-  scoreEl.innerText = score;
-  updateHighScore();
-}
-
-// function to update high score if needed
-function updateHighScore() {
-  if (score > highScore) {
-    highScore = score;
-    highScoreEl.innerText = highScore;
-    localStorage.setItem('afficheHighScore', highScore);
-  }
-}
-
-        
+        } 
         
  
         </script>
