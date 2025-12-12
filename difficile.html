@@ -173,6 +173,8 @@
             </ul>
         <br><br><br><br><br>
 
+<h3>Score: <d id="afficheScore">0 </d></h3>
+
         <center><table>
             <tr>
                 <td><center>🎄</center></td>
@@ -274,26 +276,42 @@
 
 
         <script>
-        function entreeValides() {
-            const solutions = ["🥛", "🍪", "🍪", "🎁", "🎄", "🎁", "🥛", "🥛", "🎄", "🎁", "🍪" ];
-            for (let i = 0; i < solutions.length; i++) {
-            const caseId = "case" + (i + 1);
-            const userChoice = document.getElementById(caseId).value;
-            if (userChoice !== solutions[i]) {
-                return false;
-            }
-            }
-            return true;
+
+        function entreeValide() {
+            
+                if ((document.getElementById("case1").value == "🥛") && 
+                    (document.getElementById("case2").value == "🍪") &&
+                    (document.getElementById("case3").value == "🍪") &&
+                    (document.getElementById("case4").value == "🎁") &&
+                    (document.getElementById("case5").value == "🎄") &&
+                    (document.getElementById("case6").value == "🎁") &&
+                    (document.getElementById("case7").value == "🥛") &&
+                    (document.getElementById("case8").value == "🥛") &&
+                    (document.getElementById("case9").value == "🎄") &&
+                    (document.getElementById("case10").value == "🎁") &&
+                    (document.getElementById("case11").value == "🍪")){
+                        return true;
+                    }
+                        return false;       
         }
 
         function verifierSolution() {
-            var affiche = document.getElementById("divAffiche");
-            if (entreeValides()) {
-            message = "Félicitations ! Vous avez résolu le puzzle !";
+            let affiche = document.getElementById("divAffiche");
+            if (entreeValide()) {
+            affiche.innerHTML = "Félicitations! Vous avez résolu le puzzle!";
+            montreScore(1000)
             } else {
-            message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            affiche.innerHTML = "Puzzle incorrect, essaye encore! ";
+            montreScore(-500)
             }
-            affiche.innerHTML = message;
+        }
+
+
+        let score = 0
+
+        function montreScore(pointage){
+            score = score + pointage
+            afficheScore.innerHTML = score;
         }
 
         </script>
