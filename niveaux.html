@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Projet Final</title>
+        <style>
+           body{
+                margin: 0;
+                padding: 0;
+            }
+            h2, p{
+                margin: 10px;
+                }
+
+            /* Style du bouton Dropdown */
+            .dropbtn {
+            background-color: #060224;
+            color: white;
+            padding: 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            }
+
+            /*choses dans le dropdown */
+            .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #080336;
+            min-width: 50px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            }
+
+            /* Liens dans le dropdown */
+            .dropdown-content a {
+            color: rgb(255, 255, 255);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            }
+
+            /*Couleur des liens du dropdown*/
+            .dropdown-content a:hover {
+            background-color: #080336
+            }
+
+            /*pour montrer les éléments dans le dropdown*/
+            .dropdown:hover .dropdown-content {
+            display: block;
+            }
+
+            /* Change background color of dropdown button on hover */
+            .dropdown:hover .dropbtn {
+            background-color: #080336;
+            }
+            .dropdown-content {
+            left: 0px;
+            }
+
+            /*Pour mettre les boîtes l'un à côté de l'autre-->*/
+            .container {
+                display: flex;
+                /*Pour mettre au centre*/
+                justify-content: center;
+                gap: 10px
+            }
+            /*La boîte*/
+            .box {
+                background-color: #962d0d;
+                width: 200px;
+                border: 5px solid #ffffff;
+                padding: 20px;
+                margin: 20px;
+            }
+
+            body {
+                background-image: url(images/ChristmasBackground.jpg);
+            }
+        </style>
+	</head>
+    <body>
+        <!--Voici une page pour choisir les niveaux du jeu-->
+        <h1 style="color: #d31c0f"><center>Choisi un niveau</center></h2>
+        <br>
+            <div class="container">
+            <div class="box">
+                <h3><a href="facile.html"><center>Facile</center></a></h3>
+                <p>Un petit jeu de sudoku avec pas trop de défi. Comme un exercice.</p>
+            </div>
+            <div class="box">
+                <h3><a href="intermédiaire.html"><center>Intermédiaire</center></a></h3>
+                <p>Un jeu qui va te forcer à penser. Bonne chance</p>
+            </div>
+            <div class="box">
+                <h3><a href="difficile.html"><center>Difficile</center></a></h3>
+                <p>Un défi géant! Avec des questios si difficiles, j'espère que tu survie!</p>
+            </div>
+        </div>
+        <br>
+        <h2 style="color: #ffffff"><center>Joue bien!</center></h2>
+        <
+        <center><img src="images/noel.png" width="60%"/></center>
+    </body>
+</html>
