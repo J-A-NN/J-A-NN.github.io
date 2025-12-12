@@ -228,8 +228,8 @@
             </ul>
         <br><br><br><br><br>
 
-
-<h3>Score: <span id="scoreDisplay">0</span></h3>
+<h3>HighScore: <span id="montreHighScore">0</span></h3>
+<h3>Score: <span id="MontreScore">0</span></h3>
 
 
         <center><table id="sudoku-board" class="sudoku-grid">
@@ -979,7 +979,6 @@
         <center><button onclick="verifierSolution()">Vérifier la solution</button></center>
         <center><div id="divAffiche"></div></center>
 
-<option></option>
 
         <script>
         function entreeValides() {
@@ -994,17 +993,7 @@
             return true;
         }
 
-        function verifierSolution() {
-            var affiche = document.getElementById("divAffiche");
-            if (entreeValides()) {
-            message = "Félicitations ! Vous avez résolu le puzzle !";
-            updateScore(1000)
-            } else {
-            message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
-            updateScore(-500)
-            }
-            affiche.innerHTML = message;
-        }
+      
 function styleSudokuBorders() {
     const table = document.getElementById('sudoku-board');
     if (!table) return;
@@ -1029,14 +1018,6 @@ function styleSudokuBorders() {
   styleSudokuBorders();
 
 
-let score = 0;
-
-const scoreDisplay = document.getElementById("scoreDisplay");
-
-function updateScore(points) {
-  score += points; 
-  scoreDisplay.innerHTML = score; 
-}
         </script>
     </body>
 </html>
