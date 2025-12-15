@@ -48,10 +48,11 @@
 
             /*choses dans le dropdown */
             .dropdown-content {
+            margin-top: 0px;
             display: none;
             position: absolute;
             background-color: #080336;
-            min-width: 50px;
+            width: 150px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             }
 
@@ -97,14 +98,11 @@
         </style>
 	</head>
 	<body>
-
-        <!--Background Music-->
-        <audio autoplay loop>
-            <source src="christmas-443109.mp3" type="audio/mpeg">
-        </audio>
         <!--Barre de navigation-->
          <ul>
-                <li><a href="index.html">Accueil</a></li>
+                <li >
+                   <a href="index.html">Accueil</a>
+                </li>
             
                 <li class="dropdown">
                     <button class="dropbtn">4x4</button>
@@ -133,7 +131,7 @@
                     </div>
                 </li>
             </ul>
-        
+
         <!--Couleur de texte-->
         <h1 style ="color: #ffd700"><center>Sudoku du Noel</center></h1>
         
@@ -141,6 +139,9 @@
         <!--Couleur de texte-->
         <h3 style ="color: #ffffff"><center>Bonne journée! Dans cette saison de Noel, il est important d'avoir le fun. Donc, on a décidé de te faire un petit jeu de sudoku! On espère que tu aime.</center></h3>
         <br>
+        <audio autoplay loop muted id="background_audio">
+            <source src="music/christmas-443109.mp3" type="audio/mpeg">
+        </audio>
         <!--Image du sudoku-->
         <center><img src="images/DessinSoduko.png" width="60%"/></center>
         <br>
