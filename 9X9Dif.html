@@ -235,8 +235,8 @@
             </ul>
         <br><br><br><br><br>
 
-<h3>HighScore: <span id="montreHighScore">0</span></h3>
-<h3>Score: <span id="MontreScore">0</span></h3>
+
+<h3>Score: <span id="scoreDisplay">0</span></h3>
 
 
         <center><table id="sudoku-board" class="sudoku-grid">
@@ -986,6 +986,7 @@
         <center><button onclick="verifierSolution(); donneQuestion()">Vérifier la solution</button></center>
         <center><div id="divAffiche"></div></center>
 
+<option></option>
 
         <script>
         function entreeValides() {
@@ -1000,7 +1001,17 @@
             return true;
         }
 
-      
+        function verifierSolution() {
+            var affiche = document.getElementById("divAffiche");
+            if (entreeValides()) {
+            message = "Félicitations ! Vous avez résolu le puzzle !";
+            updateScore(1000)
+            } else {
+            message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            updateScore(-500)
+            }
+            affiche.innerHTML = message;
+        }
 function styleSudokuBorders() {
     const table = document.getElementById('sudoku-board');
     if (!table) return;
@@ -1025,69 +1036,69 @@ function styleSudokuBorders() {
   styleSudokuBorders();
 
 
-        </script>
-<script>
+let score = 0;
+
 const questions = [
     {
-question: "Écris le théorème de pythagore",
-answer: "a²+b²= c²"
+question: "Quelle est le nom du prochaine ceinture après le celle d'astéroïdes:",
+answer: "Kuiper"
     },
     {
-question: "Dans un triangle rectangle, il y a toujours un angle de ? degré",
-answer: "90"
+question: "Laquelle est un métalloïde?: Og, B, Sc",
+answer: "B"
     },
     {
-question: "Trouve X: 12²x -2 = 24x + 16",
-answer: "3"
+question: "C’est quoi le nom de ce formule: x= -b ± (√b²-4ac) ÷ 2a",
+answer: "Quadratique"
     },
 {
-question:"Pluto, est t'il un planet?",
-answer: "Non"
+question:"Écris la formule du discriminant dans la formule suivant: x= -b ± (√b²-4ac) ÷ 2a",
+answer: "b² - 4ac" || "b²-4ac" ||"b² -4ac" || "b²- 4ac"
 
 },
 {
-question:"Quelle est l'élément au période 1 et le groupe 1 dans le tableau périodique?",
-answer: "Hydrogène"
+question:"Est-ce que la participe passé employé sans auxiliaire est accorder en genre et en nombre avec le sujet?",
+answer: "Non"
 },
 {
-question:"Proton, électron et ?",
-answer: "Neutron"
+question:"C’est un proposition subordonnée circonstancielle de quoi?: \nParce que le milliardaire n’a pas récolté sans peine, …",
+answer: "Cause"
 },
 {
-question:"Trouve le type du subordonnée circonstancielle: Dès que l’examen a commencé, ça a stressé beaucoup de gens",
-answer: "Temps"
+question:"C’est quoi le nom du components qui est activé/désactivé quand on utilise un lumière?: ",
+answer: "Interrupteur"
 },
 {
-question:"Vrai ou Faux: (y,x)",
-answer: "Faux"
+question:"L’ampoule a plusieurs different symbole possible qui le représente dans un circuit?:",
+answer: "Oui"
 },
 {
-question:"Qui a découervt la gravité?:",
-answer: "Isaac Newton"
+question:"Subordonnée Circonstancielle de temps, cause ou _____",
+answer: "But"
 },
 {
-question:"Ca veut dire quoi le S dans PPS (participe passé):",
-answer: "Seul"
+question:"Un autre mot pour un angle opposé par le sommet",
+answer: "Sécante"
 },
   ];
 
 //https://www.programiz.com/javascript/examples/get-random-item#:~:text=Example:%20Get%20Random%20Item%20From%20an%20Array&text=In%20the%20above%20program%2C%20a,access%20a%20random%20array%20element. 
-
+//Prend les questions et utilise math.random et math.floor pour les choisir au hazard
 function trouveQuestionAuhazard() {
 {
     const randomIndex = Math.floor(Math.random() * questions.length);
     return questions[randomIndex];
 }
 }
-
+//Affiche le question au utilisateur et leur fais répondre, les points sont accorder dépendant du difficulté et résultat
 function donneQuestion(){
 const questionChoisis = trouveQuestionAuhazard(questions);
 let réponse = prompt(questionChoisis.question);
 
 if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase()) {
-    updateScore(500)
+    updateScore(900)
 } else{
-    updateScore(-250)
+    updateScore(-500)
 }
 }
 
