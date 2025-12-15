@@ -1,128 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>Projet Final - Test</title>
-        <style>
-             body{
-                margin: 0;
-                padding: 0;
-            }
-            h2, p{
-                margin: 10px;
-                }
-            
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                background-color: #060224;
-                display: flex;
-                justify-content: center;
-            }
-
-            ul li a {
-                display: block;
-                color: white;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-            ul li a:hover {
-                background-color: #080336;
-            }
-
-            .dropdown {
-                position: relative;
-            }
-
-            /* Style du bouton Dropdown */
-            .dropbtn {
-            background-color: #060224;
-            color: white;
-            padding: 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            }
-
-            /*choses dans le dropdown */
-            .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #080336;
-            min-width: 20px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            }
-
-            /* Links inside dropdown content */
-            .dropdown-content a {
-            color: rgb(255, 255, 255);
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            }
-
-            /* Change color of dropdown links on hover */
-            .dropdown-content a:hover {
-            background-color: #080336
-            }
-
-            /* Show the dropdown content on hover */
-            .dropdown:hover .dropdown-content {
-            display: block;
-            }
-
-            /* Change background color of dropdown button on hover */
-            .dropdown:hover .dropbtn {
-            background-color: #080336;
-            }
-            .dropdown-content {
-            left: 0px;
-            }
-
-            div{
-                background-color: #962d0d;
-                width: 300px;
-                border: 5px solid #ffffff;
-                padding: 20px;
-                margin: 20px;
-            }
-
-            body {
-                background-image: url(images/ChristmasBackground.jpg);
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
 	</head>
+
     <body style="background-color: #32b3eb;">
         <ul>
                 <li><a href="index.html">Accueil</a></li>
             
                 <li class="dropdown">
                     <button class="dropbtn">4x4</button>
-                    <div class="dropdown-content">
+                    <divDropdown class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
                         <center><a href="intermédiaire.html">Intermédiaire</a></center>
                         <center><a href="difficile.html">Difficile</a></center>
-                    </div>
+                    </divDropdown>
                 </li>
 
                 <li class="dropdown">
                     <button class="dropbtn">9x9</button>
-                    <div class="dropdown-content">
+                    <divDropdown class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
                         <center><a href="intermédiaire.html">Intermédiaire</a></center>
                         <center><a href="difficile.html">Difficile</a></center>
-                    </div>
+                    </divDropdown>
                 </li>
 
                 <li class="dropdown">
                     <button class="dropbtn">?x?</button>
-                    <div class="dropdown-content">
+                    <divDropdown class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
                         <center><a href="intermédiaire.html">Intermédiaire</a></center>
                         <center><a href="difficile.html">Difficile</a></center>
-                    </div>
+                    </divDropdown>
                 </li>
             </ul>
             <center><h1 style="color: #ffd700">Niveau Difficile</h1></center>
@@ -137,13 +50,14 @@
                 <br>
                 <p><b>Mais fais sûr de te rappeler qu'il répondre à des questions de math, science, français et plus!</b></p>
             </div>
-        <br><br><br><br><br>
+        <br><br><br>
 
 
-<p> HighScore: <d id="afficheHighScore">0 </d></p>
-<p> Score: <d id="afficheScore">0 </d></p>
+<d>
+Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
+</d>
 
-
+<br><br><br>
 
         <center><table>
             <tr>
@@ -242,6 +156,7 @@
 
         <br><br>
         <center><button onclick="verifierSolution()">Vérifier la solution</button></center>
+        <center><button onclick="recommence()">Recommence</button></center>
         <center><div id="divAffiche"></div></center>
 
 
@@ -283,8 +198,57 @@
             score =  score + pointage
             afficheScore.innerHTML = score;
             return score
+            updateHighScore(score)
         } 
         
+    
+    window.onload = function () {
+  // load highscore from localStorage
+  const savedHigh = localStorage.getItem("highscore");
+  if (savedHigh !== null) {
+    document.getElementById("highscore").textContent = savedHigh;
+  }
+  
+  function updateHighscore(score) {
+  const currentHigh = parseInt(localStorage.getItem("highscore") || "0", 10);
+  if (score > currentHigh) {
+    localStorage.setItem("highscore", score);
+    document.getElementById("highscore").textContent = score;
+  }
+}
+    }
+        
+
+
+        //Création du timer. Source: https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
+        function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 3,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+
+function recommence(){
+    if (startTimer(duration,display) == "0"){
+        localStorage.removeItem("time");
+    }
+}
  
         </script>
     </body>
