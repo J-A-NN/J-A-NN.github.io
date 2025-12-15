@@ -196,6 +196,13 @@
   color: #d1d0d0;
   font-weight: bold;
 }
+div{
+                background-color: #e93c08;
+                width: 150px;
+                border: 5px solid #ffffff;
+                padding: 40px;
+                margin: 20px;
+            }
 
     body {
                 background-image: url(images/ChristmasBackground.jpg);
