@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>Projet Final - Test</title>
@@ -48,7 +49,6 @@
 
             /*choses dans le dropdown */
             .dropdown-content {
-            margin-top: 0px;
             display: none;
             position: absolute;
             background-color: #080336;
@@ -95,35 +95,36 @@
             }
         </style>
 	</head>
+
     <body style="background-color: #32b3eb;">
         <ul>
                 <li><a href="index.html">Accueil</a></li>
             
                 <li class="dropdown">
                     <button class="dropbtn">4x4</button>
-                    <div class="dropdown-content">
+                    <divDropdown class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
                         <center><a href="intermédiaire.html">Intermédiaire</a></center>
                         <center><a href="difficile.html">Difficile</a></center>
-                    </div>
+                    </divDropdown>
                 </li>
 
                 <li class="dropdown">
                     <button class="dropbtn">9x9</button>
                     <div class="dropdown-content">
-                        <center><a href="9X9">Facile</a></center>
-                        <center><a href="9X9Int.html">Intermédiaire</a></center>
-                        <center><a href="9X9Dif.html">Difficile</a></center>
+                        <center><a href="facile.html">Facile</a></center>
+                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
+                        <center><a href="difficile.html">Difficile</a></center>
                     </div>
                 </li>
 
                 <li class="dropdown">
                     <button class="dropbtn">?x?</button>
-                    <div class="dropdown-content">
+                    <divDropdown class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
                         <center><a href="intermédiaire.html">Intermédiaire</a></center>
                         <center><a href="difficile.html">Difficile</a></center>
-                    </div>
+                    </divDropdown>
                 </li>
             </ul>
             <center><h1 style="color: #ffd700">Niveau Difficile</h1></center>
@@ -138,7 +139,14 @@
                 <br>
                 <p><b>Mais fais sûr de te rappeler qu'il répondre à des questions de math, science, français et plus!</b></p>
             </div>
-        <br><br><br><br><br>
+        <br><br><br>
+
+
+<d>
+Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
+</d>
+
+<br><br><br>
 
         <center><table>
             <tr>
@@ -236,100 +244,39 @@
         </table></center>
 
         <br><br>
-        <center><button onclick="verifierSolution(); donneQuestion()">Vérifier la solution</button></center>
+        <center><button onclick="verifierSolution()">Vérifier la solution</button></center>
         <center><div id="divAffiche"></div></center>
 
 
         <script>
-        function entreeValides() {
-            const solutions = ["🥛", "🍪", "🍪", "🎁", "🎄", "🎁", "🥛", "🥛", "🎄", "🎁", "🍪" ];
-            for (let i = 0; i < solutions.length; i++) {
-            const caseId = "case" + (i + 1);
-            const userChoice = document.getElementById(caseId).value;
-            if (userChoice !== solutions[i]) {
-                return false;
-            }
-            }
-            return true;
+
+        function entreeValide() {
+            
+                if ((document.getElementById("case1").value == "🥛") && 
+                    (document.getElementById("case2").value == "🍪") &&
+                    (document.getElementById("case3").value == "🍪") &&
+                    (document.getElementById("case4").value == "🎁") &&
+                    (document.getElementById("case5").value == "🎄") &&
+                    (document.getElementById("case6").value == "🎁") &&
+                    (document.getElementById("case7").value == "🥛") &&
+                    (document.getElementById("case8").value == "🥛") &&
+                    (document.getElementById("case9").value == "🎄") &&
+                    (document.getElementById("case10").value == "🎁") &&
+                    (document.getElementById("case11").value == "🍪")){
+                        return true;
+                    }
+                        return false;       
         }
 
-        function verifierSolution() {
-            var affiche = document.getElementById("divAffiche");
-            if (entreeValides()) {
-            message = "Félicitations ! Vous avez résolu le puzzle !";
+       function verifierSolution() {
+            if (entreeValide()) {
+            document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
+            montreScore(1000)
             } else {
             message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
             }
             affiche.innerHTML = message;
         }
-
-        </script>
-        <script>
-//Identifie les quesitons
-//https://stackoverflow.com/questions/43893667/adding-answers-to-a-random-questions-quiz-javascript
-const questions = [
-    {
-question: "Quelle est le nom du prochaine ceinture après le celle d'astéroïdes:",
-answer: "Kuiper"
-    },
-    {
-question: "Laquelle est un métalloïde?: Og, B, Sc",
-answer: "B"
-    },
-    {
-question: "C’est quoi le nom de ce formule: x= -b ± (√b²-4ac) ÷ 2a",
-answer: "Quadratique"
-    },
-{
-question:"Écris la formule du discriminant dans la formule suivant: x= -b ± (√b²-4ac) ÷ 2a",
-answer: "b² - 4ac" || "b²-4ac" ||"b² -4ac" || "b²- 4ac"
-
-},
-{
-question:"Est-ce que la participe passé employé sans auxiliaire est accorder en genre et en nombre avec le sujet?",
-answer: "Non"
-},
-{
-question:"C’est un proposition subordonnée circonstancielle de quoi?: \nParce que le milliardaire n’a pas récolté sans peine, …",
-answer: "Cause"
-},
-{
-question:"C’est quoi le nom du components qui est activé/désactivé quand on utilise un lumière?: ",
-answer: "Interrupteur"
-},
-{
-question:"L’ampoule a plusieurs different symbole possible qui le représente dans un circuit?:",
-answer: "Oui"
-},
-{
-question:"Subordonnée Circonstancielle de temps, cause ou _____",
-answer: "But"
-},
-{
-question:"Un autre mot pour un angle opposé par le sommet",
-answer: "Sécante"
-},
-  ];
-
-//https://www.programiz.com/javascript/examples/get-random-item#:~:text=Example:%20Get%20Random%20Item%20From%20an%20Array&text=In%20the%20above%20program%2C%20a,access%20a%20random%20array%20element. 
-//Prend les questions et utilise math.random et math.floor pour les choisir au hazard
-function trouveQuestionAuhazard() {
-{
-    const randomIndex = Math.floor(Math.random() * questions.length);
-    return questions[randomIndex];
-}
-}
-//Affiche le question au utilisateur et leur fais répondre, les points sont accorder dépendant du difficulté et résultat
-function donneQuestion(){
-const questionChoisis = trouveQuestionAuhazard(questions);
-let réponse = prompt(questionChoisis.question);
-
-if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase()) {
-    updateScore(900)
-} else{
-    updateScore(-500)
-}
-}
 
         </script>
     </body>
