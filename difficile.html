@@ -90,6 +90,13 @@
                 padding: 20px;
                 margin: 20px;
             }
+            div{
+                background-color: #962d0d;
+                width: 300px;
+                border: 5px solid #ffffff;
+                padding: 20px;
+                margin: 20px;  
+            }
 
             body {
                 background-image: url(images/ChristmasBackground.jpg);
@@ -110,11 +117,11 @@
             
                 <li class="dropdown">
                     <button class="dropbtn">4x4</button>
-                    <divDropdown class="dropdown-content">
+                    <div class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
                         <center><a href="intermédiaire.html">Intermédiaire</a></center>
                         <center><a href="difficile.html">Difficile</a></center>
-                    </divDropdown>
+                    </div>
                 </li>
 
                 <li class="dropdown">
@@ -128,11 +135,11 @@
 
                 <li class="dropdown">
                     <button class="dropbtn">?x?</button>
-                    <divDropdown class="dropdown-content">
+                    <div class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
                         <center><a href="intermédiaire.html">Intermédiaire</a></center>
                         <center><a href="difficile.html">Difficile</a></center>
-                    </divDropdown>
+                    </div>
                 </li>
             </ul>
             <center><h1 style="color: #ffd700">Niveau Difficile</h1></center>
@@ -252,39 +259,143 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
         </table></center>
 
         <br><br>
-        <center><button onclick="verifierSolution()">Vérifier la solution</button></center>
-        <center><div id="divAffiche"></div></center>
+        
+
+        <button onclick="verifierSolution()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
+        <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
+    </center>
+    <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
 
 
-        <script>
+    <script>
+let score = 0;
+let timerInterval
 
-        function entreeValide() {
-            
-                if ((document.getElementById("case1").value == "🥛") && 
-                    (document.getElementById("case2").value == "🍪") &&
-                    (document.getElementById("case3").value == "🍪") &&
-                    (document.getElementById("case4").value == "🎁") &&
-                    (document.getElementById("case5").value == "🎄") &&
-                    (document.getElementById("case6").value == "🎁") &&
-                    (document.getElementById("case7").value == "🥛") &&
-                    (document.getElementById("case8").value == "🥛") &&
-                    (document.getElementById("case9").value == "🎄") &&
-                    (document.getElementById("case10").value == "🎁") &&
-                    (document.getElementById("case11").value == "🍪")){
-                        return true;
-                    }
-                        return false;       
+
+
+
+// HIGH SCORE SETUP
+function loadHighscore() {
+    const savedHigh = localStorage.getItem("highscore");
+    if (savedHigh !== null) {
+        document.getElementById("highscore").textContent = savedHigh;
+    }
+}
+
+
+function updateHighscore(finalScore) {
+    const currentHigh = parseInt(localStorage.getItem("highscore") || "0", 10);
+    if (finalScore > currentHigh) {
+        localStorage.setItem("highscore", finalScore.toString());
+        document.getElementById("highscore").textContent = finalScore;
+    }
+}
+
+
+https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+   timerInterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+
+        display.textContent = minutes + ":" + seconds;
+
+
+        if (--timer < 0) {
+            clearInterval(timerInterval);  // STOP instead of reset
+            document.getElementById("divAffiche").innerHTML = "⏰ Le temps est écoulé! La partie est finie.";
+            montreScore(-2000);
+           
         }
+    }, 1000);
+}
+
+
+
+function montreScore(pointage) {
+    score += pointage;
+    document.getElementById("afficheScore").textContent = score;
+    updateHighscore(score);
+}
+
+
+function entreeValide() {
+    let idCase1 = document.getElementById("case1").value
+    let idCase2 = document.getElementById("case2").value
+    let idCase3 = document.getElementById("case3").value
+    let idCase4 = document.getElementById("case4").value
+    let idCase5 = document.getElementById("case5").value
+    let idCase6 = document.getElementById("case6").value
+    let idCase7 = document.getElementById("case7").value
+    let idCase8 = document.getElementById("case8").value
+    let idCase9 = document.getElementById("case9").value
+    let idCase10 = document.getElementById("case10").value
+    let idCase11 = document.getElementById("case11").value
+if (
+       ( idCase1 == "🥛" )&&
+        (idCase2 == "🍪") &&
+        (idCase3 == "🍪") &&
+        (idCase4 == "🎁") &&
+        (idCase5 == "🎄") &&
+        (idCase6 == "🎁") &&
+        (idCase7 == "🥛") &&
+        (idCase8 == "🥛") &&
+        (idCase9 == "🎄") &&
+        (idCase10 == "🎁") &&
+        (idCase11 == "🍪")
+){
+    return true
+}else{
+    return false
+}
+}
+
 
        function verifierSolution() {
             if (entreeValide()) {
             document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
             montreScore(1000)
             } else {
-            message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            montreScore(-500)
             }
-            affiche.innerHTML = message;
+           
         }
+
+function recommence() {
+    clearInterval(timerInterval)
+    document.getElementById("afficheScore").textContent = 0;
+    document.getElementById("divAffiche").innerHTML = "";
+   
+    // Reset inputs
+    for (let i = 1; i <= 11; i++) {
+        const cell = document.getElementById("case"+i);
+        if (cell) {
+            cell.value = "";
+        }
+    }
+   
+    // Restart YOUR timer
+    var troisMinutes = 60 * 3;
+    var display = document.querySelector('#time');
+    startTimer(troisMinutes, display);
+}
+
+
+
+
+window.onload = function () {
+    loadHighscore();
+    var troisMinutes = 60 * 3,
+    display = document.querySelector('#time');
+    startTimer(troisMinutes, display);
+};
 
         </script>
         <script>
@@ -357,3 +468,6 @@ if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase())
         </script>
     </body>
 </html>
+
+
+
