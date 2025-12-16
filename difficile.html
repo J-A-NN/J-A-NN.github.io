@@ -363,7 +363,8 @@ if (
 
 function recommence() {
     clearInterval(timerInterval)
-    document.getElementById("afficheScore").textContent = 0;
+    score=0
+    document.getElementById("afficheScore").textContent = score;
     document.getElementById("divAffiche").innerHTML = "";
    
     // Reset inputs
@@ -453,9 +454,9 @@ const questionChoisis = trouveQuestionAuhazard(questions);
 let réponse = prompt(questionChoisis.question);
 
 if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase()) {
-    updateScore(900)
+    montreScore(900)
 } else{
-    updateScore(-500)
+    montreScore(-500)
 }
 }
         </script>
