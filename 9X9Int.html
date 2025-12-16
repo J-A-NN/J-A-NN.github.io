@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title>Projet Final - Test</title>
         <style>
-           body{
+            body{
                 margin: 0;
                 padding: 0;
             }
             h2, p{
                 margin: 10px;
                 }
-            
+            /*Style de barre de navigation*/
             ul {
                 list-style-type: none;
                 margin: 0;
@@ -21,7 +20,7 @@
                 display: flex;
                 justify-content: center;
             }
-
+            /*Couleur de texte dans la barre de navigation*/
             ul li a {
                 display: block;
                 color: white;
@@ -32,12 +31,12 @@
             ul li a:hover {
                 background-color: #080336;
             }
-
+            
             .dropdown {
                 position: relative;
             }
 
-            /* Style du bouton Dropdown */
+            /* Style the dropdown button */
             .dropbtn {
             background-color: #060224;
             color: white;
@@ -47,14 +46,15 @@
             cursor: pointer;
             }
 
-            /*choses dans le dropdown */
+            /* Dropdown content */
             .dropdown-content {
             margin-top: 0px;
             display: none;
             position: absolute;
             background-color: #080336;
-            width: 150px;
+            min-width: 50px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            
             }
 
             /* Links inside dropdown content */
@@ -63,6 +63,7 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            
             }
 
             /* Change color of dropdown links on hover */
@@ -82,7 +83,15 @@
             .dropdown-content {
             left: 0px;
             }
-             table, td {
+
+            div{
+                background-color: #ad2525;
+                width: 150px;
+                border: 5px solid #ffffff;
+                padding: 50px;
+                margin: 20px;
+            }
+            table, td {
                 border: 2px solid rgb(97, 91, 91);
                 border-collapse: collapse;
                 padding: 10px;
@@ -132,77 +141,76 @@
             button:hover {
                 background-color: #a61f1f;
             }
+.sudoku-grid {
+    border-collapse: collapse; /* Essential for borders to merge into single lines */
+    border: 3px solid black;   /* Thick outer boundary for the whole grid */
+    margin: 20px auto;         /* Center the table on the page */
+}
 
-            .sudoku-grid {
-                border-collapse: collapse; /* Essential for borders to merge into single lines */
-                border: 3px solid black;   /* Thick outer boundary for the whole grid */
-                margin: 20px auto;         /* Center the table on the page */
-            }
+.sudoku-grid td {
+    /* Set cell dimensions large enough for the select box */
+    width: 60px;
+    height: 45px;
+    
+    /* Default thin inner border */
+    border: 1px solid #bbb;
+    
+    text-align: center;
+    padding: 0; /* Remove default cell padding */
+}
 
-            .sudoku-grid td {
-                /* Set cell dimensions large enough for the select box */
-                width: 60px;
-                height: 45px;
-                
-                /* Default thin inner border */
-                border: 1px solid #bbb;
-                
-                text-align: center;
-                padding: 0; /* Remove default cell padding */
-            }
+/* Style the dropdown list itself so it fits neatly */
+.sudoku-grid select {
+    width: 80px;
+    height: 80px;
+    border: none; /* Remove the default border from the select element */
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 35px; /* Make the emojis visible */
+}
 
-            /* Style the dropdown list itself so it fits neatly */
-            .sudoku-grid select {
-                width: 80px;
-                height: 80px;
-                border: none; /* Remove the default border from the select element */
-                background-color: transparent;
-                cursor: pointer;
-                font-size: 35px; /* Make the emojis visible */
-            }
+/* --- Prominent Borders using CSS pseudo-classes --- */
 
-            /* --- Prominent Borders using CSS pseudo-classes --- */
+/* Thicker bottom border for the 3rd and 6th rows (tr:nth-child(3), tr:nth-child(6)) */
+.sudoku-grid tr:nth-child(3n) td {
+    border-bottom: 3px solid black;
+}
 
-            /* Thicker bottom border for the 3rd and 6th rows (tr:nth-child(3), tr:nth-child(6)) */
-            .sudoku-grid tr:nth-child(3n) td {
-                border-bottom: 3px solid black;
-            }
+/* Thicker right border for the 3rd and 6th columns (td:nth-child(3), td:nth-child(6)) */
+.sudoku-grid td:nth-child(3n) {
+    border-right: 3px solid black;
+}
 
-            /* Thicker right border for the 3rd and 6th columns (td:nth-child(3), td:nth-child(6)) */
-            .sudoku-grid td:nth-child(3n) {
-                border-right: 3px solid black;
-            }
+/* Fix: Ensure the *very last* row (row 9) and *very last* column (col 9) use the thin border internally, 
+   as the thick outer table border handles the edge */
+.sudoku-grid tr:nth-child(9n) td {
+    border-bottom: 1px solid #a3a3a3;
+}
 
-            /* Fix: Ensure the *very last* row (row 9) and *very last* column (col 9) use the thin border internally, 
-            as the thick outer table border handles the edge */
-            .sudoku-grid tr:nth-child(9n) td {
-                border-bottom: 1px solid #a3a3a3;
-            }
-
-            .sudoku-grid td:nth-child(9n) {
-                border-right: 1px solid #b3b3b3;
-            }
-            #scoreDisplay {
-                font-family: Arial, sans-serif;
-                font-size: 24px;
-                color: #d1d0d0;
-                font-weight: bold;
-            }
-            /*Une boîte*/
-            div {
-                background-color: #962d0d;
-                width: 300px;
+.sudoku-grid td:nth-child(9n) {
+    border-right: 1px solid #b3b3b3;
+}
+#scoreDisplay {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  color: #d1d0d0;
+  font-weight: bold;
+}
+div{
+                background-color: #d63302;
+                width: 150px;
                 border: 5px solid #ffffff;
-                padding: 20px;
+                padding: 40px;
                 margin: 20px;
             }
-            /*Image de l'arrière plan*/
-            body {
+
+    body {
                 background-image: url(images/ChristmasBackground.jpg);
             }
         </style>
 	</head>
-    <body>
+    <body  style="background-color: #32b3eb;">
+        
         <ul>
                 <li><a href="index.html">Accueil</a></li>
             
@@ -218,9 +226,9 @@
                 <li class="dropdown">
                     <button class="dropbtn">9x9</button>
                     <div class="dropdown-content">
-                        <center><a href="facile.html">Facile</a></center>
-                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
-                        <center><a href="difficile.html">Difficile</a></center>
+                        <center><a href="9X9">Facile</a></center>
+                        <center><a href="9X9Int.html">Intermédiaire</a></center>
+                        <center><a href="9X9Dif.html">Difficile</a></center>
                     </div>
                 </li>
 
@@ -233,27 +241,12 @@
                     </div>
                 </li>
             </ul>
-            <center><h1 style="color: #ffd700">Niveau Difficile</h1></center>
-            <a href="niveaux.html"><h4 style="color: #ffffff">Choisir un différent niveau</h4></a>
-            <center><h3 style ="color: #ffffff">Vous allez faire difficile?! J'espère que tu connais comment jouer... bonne chance</h3></center>
-            <h3 style="color: #21810e"><u>Comment jouer:</u></h3>
-            <div>
-                <center><p><u>Instructions:</u></p></center>
-                <p><b>Cette jeu de sudoku est très simple.</p></b>
-                <p><b>Il faut remplir la grille avec des images uniques par ligne, par colonne et par bloc <i>sans répition</i></b></p>
-                <br>
-                <p><b>(Chaque images doit apparaître une seule fois dans une ligne, colonne et bloc)</b></p>
-                <br>
-                <p><b>Mais fais sûr de te rappeler qu'il répondre à des questions de math, science, français et plus!</b></p>
-            </div>
-        <br><br><br>
+        <br><br><br><br><br>
+        
 
 
-<d>
-Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
-</d>
+<h3>Score: <span id="scoreDisplay">0</span></h3>
 
-<br><br><br>
 
         <center><table id="sudoku-board" class="sudoku-grid">
             <tr>
@@ -999,40 +992,126 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
         </table></center>
 
         <br><br>
-        <center><button onclick="verifierSolution()">Vérifier la solution</button></center>
+        <center><button onclick="verifierSolution(); donneQuestion()">Vérifier la solution</button></center>
         <center><div id="divAffiche"></div></center>
 
+<option></option>
 
         <script>
-
-        function entreeValide() {
-            
-                if ((document.getElementById("case1").value == "🥛") && 
-                    (document.getElementById("case2").value == "🍪") &&
-                    (document.getElementById("case3").value == "🍪") &&
-                    (document.getElementById("case4").value == "🎁") &&
-                    (document.getElementById("case5").value == "🎄") &&
-                    (document.getElementById("case6").value == "🎁") &&
-                    (document.getElementById("case7").value == "🥛") &&
-                    (document.getElementById("case8").value == "🥛") &&
-                    (document.getElementById("case9").value == "🎄") &&
-                    (document.getElementById("case10").value == "🎁") &&
-                    (document.getElementById("case11").value == "🍪")){
-                        return true;
-                    }
-                        return false;       
+        function entreeValides() {
+            const solutions = ["☃️", "🎁", "🥛", "🦌", "🎄", "🍪", "🎅", "🎅", "🎄", "🥛", "❄️", "🍪", "🌟", "🦌", "🦌", "🎄", "🎁", "❄️", "☃️", "🎅", "🌟", "🍪", "🦌", "❄️", "🎁", "☃️", "🥛", "❄️", "☃️", "🍪", "🎁", "🥛", "🦌", "🎄", "🎁", "☃️", "🎄", "🎅", "❄️", "☃️", "🎄", "🌟", "🎅", "🍪", "🍪", "🥛", "❄️", "🎅", "☃️", "🌟", "🎁", "🎁", "🌟", "☃️", "🥛", "🍪", "🦌", "🎄"];
+            for (let i = 0; i < solutions.length; i++) {
+            const caseId = "case" + (i + 1);
+            const userChoice = document.getElementById(caseId).value;
+            if (userChoice !== solutions[i]) {
+                return false;
+            }
+            }
+            return true;
         }
 
-       function verifierSolution() {
-            if (entreeValide()) {
-            document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
-            montreScore(1000)
+        function verifierSolution() {
+            var affiche = document.getElementById("divAffiche");
+            if (entreeValides()) {
+            message = "Félicitations ! Vous avez résolu le puzzle !";
+            updateScore(1000)
             } else {
             message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            updateScore(-500)
             }
             affiche.innerHTML = message;
         }
+function styleSudokuBorders() {
+    const table = document.getElementById('sudoku-board');
+    if (!table) return;
 
-        </script>
+    for (let i = 0; i < 9; i++) {
+      for (let j = 0; j < 9; j++) {
+        // Get the cell at row i, column j
+        const cell = table.rows[i].cells[j];
+
+        // Apply a thicker bottom border to the 3rd and 6th rows
+        if ((i + 1) % 3 === 0 && i !== 8) {
+          cell.style.borderBottom = '3px solid black';
+        }
+
+        // Apply a thicker right border to the 3rd and 6th columns
+        if ((j + 1) % 3 === 0 && j !== 8) {
+          cell.style.borderRight = '3px solid black';
+        }
+      }
+    }
+  }
+  styleSudokuBorders();
+
+
+let score = 0;
+
+const questions = [
+    {
+question: "Les deux possibilité de X sont égaux à quoi?: 4x(x) = 0",
+answer: "0"
+    },
+    {
+question: "Dans un triangle isocèle les trois angles sont de: ?",
+answer: "60"
+    },
+    {
+question: "Lequel est faux?: \nSin()=Opposé ÷ Hypoténuse, \nCos()=Adjacent ÷ Hypoténuse, \ntan()=Adjacent ÷ Opposée",
+answer: "tan()" || "tan"
+    },
+{
+question:"Les électrons retire de quoi?:",
+answer: "Électrons"
+
+},
+{
+question:"Nom le 5ième planet le plus proche au soleil:",
+answer: "Jupiter"
+},
+{
+question:"Combien de planètes sont dans ceinture d'astéroïdes:",
+answer: "4"
+},
+{
+question:"Le participe passé ____ est JAMAIS accorder en genre et nombre avec le sujet",
+answer: "Avoir"
+},
+{
+question:"C’est quoi le type de subordonnée dans la phrase suivant: \nLe coeur a ses raisons que la raison en connaît point.",
+answer: "Relative"
+},
+{
+question:"Il y a combien de propositions (Proposition Subordonnée et Proposition Principal): \nParce que le milliardaire n’a pas récolté sans peine, il s’imagine qu’il a semé",
+answer: "3"
+},
+{
+question:"La lune et le soleil, les deux sont des étoiles",
+answer: "Faux"
+},
+  ];
+
+//https://www.programiz.com/javascript/examples/get-random-item#:~:text=Example:%20Get%20Random%20Item%20From%20an%20Array&text=In%20the%20above%20program%2C%20a,access%20a%20random%20array%20element. 
+//Prend les questions et utilise math.random et math.floor pour les choisir au hazard
+function trouveQuestionAuhazard() {
+{
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    return questions[randomIndex];
+}
+}
+//Affiche le question au utilisateur et leur fais répondre, les points sont accorder dépendant du difficulté et résultat
+function donneQuestion(){
+const questionChoisis = trouveQuestionAuhazard(questions);
+let réponse = prompt(questionChoisis.question);
+
+if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase()) {
+    updateScore(700)
+} else{
+    updateScore(-350)
+}
+}
+
+</script>
+
     </body>
 </html>
