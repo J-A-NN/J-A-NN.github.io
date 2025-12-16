@@ -261,7 +261,7 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
         <br><br>
         
 
-        <button onclick="verifierSolution()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
+        <button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
         <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
     </center>
     <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
@@ -460,9 +460,9 @@ const questionChoisis = trouveQuestionAuhazard(questions);
 let réponse = prompt(questionChoisis.question);
 
 if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase()) {
-    updateScore(900)
+    montreScore(900)
 } else{
-    updateScore(-500)
+    montreScore(-500)
 }
 }
         </script>
