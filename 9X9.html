@@ -1006,6 +1006,17 @@ div{
             }
             return true;
         }
+            function verifierSolution() {
+            var affiche = document.getElementById("divAffiche");
+            if (entreeValides()) {
+            message = "Félicitations ! Vous avez résolu le puzzle !";
+            updateScore(1000)
+            } else {
+            message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            updateScore(-500)
+            }
+            affiche.innerHTML = message;
+        }
 
       
 function styleSudokuBorders() {
@@ -1029,11 +1040,11 @@ function styleSudokuBorders() {
       }
     }
   }
-  styleSudokuBorders();
 
 
-        </script>
-<script>
+
+
+
 const questions = [
     {
 question: "Écris le théorème de pythagore",
