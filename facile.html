@@ -2,6 +2,8 @@
 <html>
 
 
+
+
     <head>
         <meta charset="UTF-8">
         <title>Projet Final - Test</title>
@@ -30,13 +32,15 @@
                 text-decoration: none;
             }
 
+
             ul li a:hover {
                 background-color: #080336;
             }
-            
+           
             .dropdown {
                 position: relative;
             }
+
 
             /* Style the dropdown button */
             .dropbtn {
@@ -48,6 +52,7 @@
             cursor: pointer;
             }
 
+
             /* Dropdown content */
             .dropdown-content {
             margin-top: 0px;
@@ -56,8 +61,9 @@
             background-color: #080336;
             min-width: 50px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            
+           
             }
+
 
             /* Links inside dropdown content */
             .dropdown-content a {
@@ -65,18 +71,21 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
-            
+           
             }
+
 
             /* Change color of dropdown links on hover */
             .dropdown-content a:hover {
             background-color: #080336
             }
 
+
             /* Show the dropdown content on hover */
             .dropdown:hover .dropdown-content {
             display: block;
             }
+
 
             /* Change background color of dropdown button on hover */
             .dropdown:hover .dropbtn {
@@ -86,140 +95,20 @@
             left: 0px;
             }
 
-<<<<<<< HEAD
-            table, td {
-                border: 2px solid rgb(97, 91, 91);
-                border-collapse: collapse;
-                padding: 10px;
-            }
 
-            /* Table styling */
-            table {
-                margin-top: 20px;
-                border-collapse: collapse;
-                background: #fff;
-                box-shadow: 0 14px 12px rgba(0, 0, 0, 0.15);
-                border-radius: 22px;
-                overflow: hidden;
-            }
-
-            td {
-                height: 65px;
-                width: 65px;
-                border: 2px solid #807d7d;
-                font-size: 35px;
-                padding: 3px;
-            }
-
-            /* Dropdown styling */
-            select {
-                font-size: 35px;
-                border-radius: 20px;
-                padding: 4px;
-                border: 1px solid #4e3232;
-                cursor: pointer;
-                background-color: #ffffff;
-            }
-
-            /* Button styling */
-            button {
-                margin-top: 25px;
-                padding: 12px 22px;
-                font-size: 18px;
-                background-color: #d62c2c;
-                color: white;
-                border: none;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: 0.2s;
-            }
-
-            button:hover {
-                background-color: #a61f1f;
-            }
-
-            .sudoku-grid {
-                border-collapse: collapse; /* Essential for borders to merge into single lines */
-                border: 3px solid black;   /* Thick outer boundary for the whole grid */
-                margin: 20px auto;         /* Center the table on the page */
-            }
-
-            .sudoku-grid td {
-                /* Set cell dimensions large enough for the select box */
-                width: 60px;
-                height: 45px;
-                
-                /* Default thin inner border */
-                border: 1px solid #bbb;
-                
-                text-align: center;
-                padding: 0; /* Remove default cell padding */
-            }
-
-            /* Style the dropdown list itself so it fits neatly */
-            .sudoku-grid select {
-                width: 80px;
-                height: 80px;
-                border: none; /* Remove the default border from the select element */
-                background-color: transparent;
-                cursor: pointer;
-                font-size: 35px; /* Make the emojis visible */
-            }
-
-            /* --- Prominent Borders using CSS pseudo-classes --- */
-
-            /* Thicker bottom border for the 3rd and 6th rows (tr:nth-child(3), tr:nth-child(6)) */
-            .sudoku-grid tr:nth-child(3n) td {
-                border-bottom: 3px solid black;
-            }
-
-            /* Thicker right border for the 3rd and 6th columns (td:nth-child(3), td:nth-child(6)) */
-            .sudoku-grid td:nth-child(3n) {
-                border-right: 3px solid black;
-            }
-
-            /* Fix: Ensure the *very last* row (row 9) and *very last* column (col 9) use the thin border internally, 
-            as the thick outer table border handles the edge */
-            .sudoku-grid tr:nth-child(9n) td {
-                border-bottom: 1px solid #a3a3a3;
-            }
-
-            .sudoku-grid td:nth-child(9n) {
-                border-right: 1px solid #b3b3b3;
-            }
-            #scoreDisplay {
-                font-family: Arial, sans-serif;
-                font-size: 24px;
-                color: #d1d0d0;
-                font-weight: bold;
-            }
-
-            .div1 {
-                background-color: #962d0d;
-                width: 300px;
-=======
             div{
                 background-color: #bd1a1a;
                 width: 150px;
->>>>>>> 73761ba36170e4484889fc0db608823031f311c9
                 border: 5px solid #ffffff;
                 padding: 50px;
                 margin: 20px;
             }
-<<<<<<< HEAD
-            div{
-                background-color: #1de003;
-                width: 300px;
-                border: 5px solid #ffffff;
-                padding: 20px;
-                margin: 20px;  
-=======
             table, td {
                 border: 2px solid rgb(97, 91, 91);
                 border-collapse: collapse;
                 padding: 10px;
->>>>>>> 73761ba36170e4484889fc0db608823031f311c9
             }
+
 
             /* Table styling */
             table {
@@ -231,6 +120,7 @@
                 overflow: hidden;
             }
 
+
             td {
                 height: 65px;
                 width: 65px;
@@ -238,6 +128,7 @@
                 font-size: 35px;
                 padding: 3px;
             }
+
 
             /* Dropdown styling */
             select {
@@ -248,6 +139,7 @@
                 cursor: pointer;
                 background-color: #ffffff;
             }
+
 
             /* Button styling */
             button {
@@ -261,6 +153,7 @@
                 cursor: pointer;
                 transition: 0.2s;
             }
+
 
             button:hover {
                 background-color: #a61f1f;
@@ -271,17 +164,19 @@
     margin: 20px auto;         /* Center the table on the page */
 }
 
+
 .sudoku-grid td {
     /* Set cell dimensions large enough for the select box */
     width: 60px;
     height: 45px;
-    
+   
     /* Default thin inner border */
     border: 1px solid #bbb;
-    
+   
     text-align: center;
     padding: 0; /* Remove default cell padding */
 }
+
 
 /* Style the dropdown list itself so it fits neatly */
 .sudoku-grid select {
@@ -292,6 +187,7 @@
     cursor: pointer;
     font-size: 35px; /* Make the emojis visible */
 }
+
 
 #scoreDisplay {
   font-family: Arial, sans-serif;
@@ -307,6 +203,7 @@
                 margin: 20px;
             }
 
+
 div{
                 background-color: #e93c08;
                 width: 150px;
@@ -315,11 +212,14 @@ div{
                 margin: 20px;
             }
 
+
     body {
                 background-image: url(images/ChristmasBackground.jpg);
             }
         </style>
     </head>
+
+
 
 
     <body style="background-color: #32b3eb;">
@@ -336,6 +236,8 @@ div{
                 </li>
 
 
+
+
                 <li class="dropdown">
                     <button class="dropbtn">9x9</button>
                     <div class="dropdown-content">
@@ -344,6 +246,8 @@ div{
                         <center><a href="9X9Dif.html">Difficile</a></center>
                     </div>
                 </li>
+
+
 
 
                 <li class="dropdown">
@@ -358,8 +262,7 @@ div{
             <center><h1 style="color: #ffd700">Niveau Difficile</h1></center>
             <center><h3 style ="color: #ffffff">Vous allez faire difficile?! J'espère que tu connais comment jouer... bonne chance</h3></center>
             <h3 style="color: #21810e"><u>Comment jouer:</u></h3>
-            <center></center>
-            <div class="div1">
+            <div class="instruction">
                 <center><p><u>Instructions:</u></p></center>
                 <p><b>Cette jeu de sudoku est très simple.</p></b>
                 <p><b>Il faut remplir la grille avec des images uniques par ligne, par colonne et par bloc <i>sans répition</i></b></p>
@@ -373,12 +276,20 @@ div{
 
 
 
+
+
+
+
 <d>
 Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
 </d>
 
 
+
+
 <br><br><br>
+
+
 
 
         <center><table>
@@ -408,6 +319,8 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
             </tr>
 
 
+
+
             <tr>
                 <td><center><select id="case4">
                     <option></option>
@@ -428,7 +341,9 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
             </tr>
 
 
-            <tr> 
+
+
+            <tr>
                 <td><center>🎄</center></td>
                 <td><center>🎁</center></td>
                 <td><center>🥛</center></td>
@@ -455,7 +370,7 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                     <option>🎁</option>
                     <option>🎄</option>
                 </select></center></td>
-                <td><center>🎁</center></td> 
+                <td><center>🎁</center></td>
                 <td><center><select id="case9">
                     <option></option>
                     <option>🍪</option>
@@ -467,8 +382,12 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
         </table></center>
 
 
+
+
         <br><br>
        
+
+
 
 
         <button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
@@ -477,28 +396,153 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
     <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
 
 
-        <script>
-            function entreeValides() {
-                const solutions = ["🥛", "🍪", "🍪", "🎁", "🎄", "🎁", "🥛", "🥛", "🎄", "🎁", "🍪" ];
-                for (let i = 0; i < solutions.length; i++) {
-                const caseId = "case" + (i + 1);
-                const userChoice = document.getElementById(caseId).value;
-                if (userChoice !== solutions[i]) {
-                    return false;
-                }
-                }
-                return true;
-            }
 
-            function verifierSolution() {
-                var affiche = document.getElementById("divAffiche");
-                if (entreeValides()) {
-                message = "Félicitations ! Vous avez résolu le puzzle ! Aller au prochaine niveau!";
-                } else {
-                message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
-                }
-                affiche.innerHTML = message;
+
+
+
+
+
+    <script>
+let score = 0;
+let timerInterval
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// HIGH SCORE SETUP
+function loadHighscore() {
+    const savedHigh = localStorage.getItem("highscore");
+    if (savedHigh !== null) {
+        document.getElementById("highscore").textContent = savedHigh;
+    }
+}
+
+
+
+
+
+
+
+
+function updateHighscore(finalScore) {
+    const currentHigh = parseInt(localStorage.getItem("highscore") || "0", 10);
+    if (finalScore > currentHigh) {
+        localStorage.setItem("highscore", finalScore.toString());
+        document.getElementById("highscore").textContent = finalScore;
+    }
+}
+
+
+
+
+
+
+
+
+https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+   timerInterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+
+
+
+
+
+
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+
+
+
+
+
+
+
+        display.textContent = minutes + ":" + seconds;
+
+
+
+
+
+
+
+
+        if (--timer < 0) {
+            clearInterval(timerInterval);  // STOP instead of reset
+            document.getElementById("divAffiche").innerHTML = "Le temps est écoulé! La partie est finie.";
+            montreScore(-2000);
+           
+        }
+    }, 1000);
+}
+
+
+
+
+function montreScore(pointage) {
+    score += pointage;
+    document.getElementById("afficheScore").textContent = score;
+    updateHighscore(score);
+}
+
+
+function entreeValide() {
+    let idCase1 = document.getElementById("case1").value
+    let idCase2 = document.getElementById("case2").value
+    let idCase3 = document.getElementById("case3").value
+    let idCase4 = document.getElementById("case4").value
+    let idCase5 = document.getElementById("case5").value
+    let idCase6 = document.getElementById("case6").value
+    let idCase7 = document.getElementById("case7").value
+    let idCase8 = document.getElementById("case8").value
+    let idCase9 = document.getElementById("case9").value
+if (
+       ( idCase1 == "🥛" )&&
+        (idCase2 == "🎄") &&
+        (idCase3 == "🎁") &&
+        (idCase4 == "🎁") &&
+        (idCase5 == "🎄") &&
+        (idCase6 == "🍪") &&
+        (idCase7 == "🥛") &&
+        (idCase8 == "🍪") &&
+        (idCase9 == "🎄")
+){
+    return true
+}else{
+    return false
+}
+}
+
+
+       function verifierSolution() {
+            if (entreeValide()) {
+            document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
+            montreScore(500)
+            clearInterval(timerInterval);
+            } else {
+            document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            montreScore(-500)
             }
+           
+        }
+
 
 function recommence() {
     clearInterval(timerInterval)
@@ -520,12 +564,14 @@ function recommence() {
     startTimer(troisMinutes, display);
 }
 
+
 window.onload = function () {
     loadHighscore();
     var troisMinutes = 60 * 3,
     display = document.querySelector('#time');
     startTimer(troisMinutes, display);
 };
+
 
         </script>
         <script>
@@ -548,6 +594,8 @@ answer: "Quadratique"
 {
 question:"Écris la formule du discriminant dans la formule suivant: x= -b ± (√b²-4ac) ÷ 2a",
 answer: "b² - 4ac" || "b²-4ac" ||"b² -4ac" || "b²- 4ac"
+
+
 
 
 },
@@ -578,6 +626,8 @@ answer: "Sécante"
   ];
 
 
+
+
 //https://www.programiz.com/javascript/examples/get-random-item#:~:text=Example:%20Get%20Random%20Item%20From%20an%20Array&text=In%20the%20above%20program%2C%20a,access%20a%20random%20array%20element.
 //Prend les questions et utilise math.random et math.floor pour les choisir au hazard
 function trouveQuestionAuhazard() {
@@ -592,6 +642,8 @@ const questionChoisis = trouveQuestionAuhazard(questions);
 let réponse = prompt(questionChoisis.question);
 
 
+
+
 if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase()) {
     montreScore(900)
 } else{
@@ -601,6 +653,18 @@ if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase())
         </script>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
