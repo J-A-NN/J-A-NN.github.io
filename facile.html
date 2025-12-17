@@ -82,14 +82,26 @@
             left: 0px;
             }
 
+<<<<<<< HEAD
             
 
             div {
                 background-color: #962d0d;
+=======
+            .instruction{
+                background-color: #e44718;
+>>>>>>> e0971eb19662d994e46b7bcdd9e004b30ac9b579
                 width: 300px;
                 border: 5px solid #ffffff;
                 padding: 20px;
                 margin: 20px;
+            }
+                div{
+                background-color: #1de003;
+                width: 200px;
+                border: 5px solid #ffffff;
+                padding: 20px;
+                margin: 20px;  
             }
 
             body {
@@ -115,7 +127,7 @@
                 <li class="dropdown">
                     <button class="dropbtn">9x9</button>
                     <div class="dropdown-content">
-                        <center><a href="9X9">Facile</a></center>
+                        <center><a href="9X9.html">Facile</a></center>
                         <center><a href="9X9Int.html">Intermédiaire</a></center>
                         <center><a href="9X9Dif.html">Difficile</a></center>
                     </div>
@@ -134,7 +146,7 @@
             <a href="niveaux.html"><h4 style="color: #ffffff">Choisir un différent niveau</h4></a>
             <h3 style ="color: #ffffff"><center>Vraiment? Tu as choisi facile? D'accord on ne juge pas... c'est juste en peu nulle.</center></h3>
             <h3 style="color: #21810e"><u>Comment jouer:</u></h3>
-            <div>
+            <div class="instruction">
                 <center><p><u>Instructions:</u></p></center>
                 <p><b>Cette jeu de sudoku est très simple.</p></b>
                 <p><b>Il faut remplir la grille avec des images uniques par ligne, par colonne et par bloc <i>sans répition</i></b></p>
@@ -144,6 +156,12 @@
                 <p><b>Mais fais sûr de te rappeler qu'il répondre à des questions de math, science, français et plus!</b></p>
             </div>
             <br><br><br><br><br>
+
+<d>
+Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
+</d>
+
+<br><br><br>
 
         <center><table>
             <tr>
@@ -241,10 +259,15 @@
         </table></center>
 
         <br><br>
-        <center><button onclick="verifierSolution();">Vérifier la solution</button></center>
-        <center><div id="divAffiche"></div></center>
+        
+
+        <button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
+        <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
+    </center>
+    <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
 
 
+<<<<<<< HEAD
         <script>
             function entreeValides() {
                 const solutions = ["🥛", "🍪", "🍪", "🎁", "🎄", "🎁", "🥛", "🥛", "🎄", "🎁", "🍪" ];
@@ -267,6 +290,139 @@
                 }
                 affiche.innerHTML = message;
             }
+=======
+    <script>
+let score = 0;
+let timerInterval
+
+
+
+
+// HIGH SCORE SETUP
+function loadHighscore() {
+    const savedHigh = localStorage.getItem("highscore");
+    if (savedHigh !== null) {
+        document.getElementById("highscore").textContent = savedHigh;
+    }
+}
+
+
+function updateHighscore(finalScore) {
+    const currentHigh = parseInt(localStorage.getItem("highscore") || "0", 10);
+    if (finalScore > currentHigh) {
+        localStorage.setItem("highscore", finalScore.toString());
+        document.getElementById("highscore").textContent = finalScore;
+    }
+}
+
+
+https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+   timerInterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+
+        display.textContent = minutes + ":" + seconds;
+
+
+        if (--timer < 0) {
+            clearInterval(timerInterval);  // STOP instead of reset
+            document.getElementById("divAffiche").innerHTML = "⏰ Le temps est écoulé! La partie est finie.";
+            montreScore(-2000);
+           
+        }
+    }, 1000);
+}
+
+
+
+function montreScore(pointage) {
+    score += pointage;
+    document.getElementById("afficheScore").textContent = score;
+    updateHighscore(score);
+}
+
+
+function entreeValide() {
+    let idCase1 = document.getElementById("case1").value
+    let idCase2 = document.getElementById("case2").value
+    let idCase3 = document.getElementById("case3").value
+    let idCase4 = document.getElementById("case4").value
+    let idCase5 = document.getElementById("case5").value
+    let idCase6 = document.getElementById("case6").value
+    let idCase7 = document.getElementById("case7").value
+    let idCase8 = document.getElementById("case8").value
+    let idCase9 = document.getElementById("case9").value
+    let idCase10 = document.getElementById("case10").value
+    let idCase11 = document.getElementById("case11").value
+if (
+       ( idCase1 == "🥛" )&&
+        (idCase2 == "🍪") &&
+        (idCase3 == "🍪") &&
+        (idCase4 == "🎁") &&
+        (idCase5 == "🎄") &&
+        (idCase6 == "🎁") &&
+        (idCase7 == "🥛") &&
+        (idCase8 == "🥛") &&
+        (idCase9 == "🎄") &&
+        (idCase10 == "🎁") &&
+        (idCase11 == "🍪")
+){
+    return true
+}else{
+    return false
+}
+}
+
+
+       function verifierSolution() {
+            if (entreeValide()) {
+            document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
+            montreScore(1000)
+            } else {
+            document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            montreScore(-500)
+            }
+           
+        }
+>>>>>>> e0971eb19662d994e46b7bcdd9e004b30ac9b579
+
+function recommence() {
+    clearInterval(timerInterval)
+    score=0
+    document.getElementById("afficheScore").textContent = score;
+    document.getElementById("divAffiche").innerHTML = "";
+   
+    // Reset inputs
+    for (let i = 1; i <= 11; i++) {
+        const cell = document.getElementById("case"+i);
+        if (cell) {
+            cell.value = "";
+        }
+    }
+   
+    // Restart YOUR timer
+    var troisMinutes = 60 * 3;
+    var display = document.querySelector('#time');
+    startTimer(troisMinutes, display);
+}
+
+
+
+
+window.onload = function () {
+    loadHighscore();
+    var troisMinutes = 60 * 3,
+    display = document.querySelector('#time');
+    startTimer(troisMinutes, display);
+};
+
 
         </script>
         <script>
@@ -330,9 +486,9 @@ const questionChoisis = trouveQuestionAuhazard(questions);
 let réponse = prompt(questionChoisis.question);
 
 if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase()) {
-    updateScore(500)
+    montreScore(500)
 } else{
-    updateScore(-250)
+    montreScore(-250)
 }
 }
 

@@ -88,6 +88,7 @@
                 padding: 10px;
             }
 
+<<<<<<< HEAD
             /* Table styling */
             table {
                 margin-top: 20px;
@@ -191,14 +192,36 @@
             /*Une boîte*/
             div {
                 background-color: #962d0d;
+=======
+            .instruction{
+                background-color: #e44718;
+>>>>>>> e0971eb19662d994e46b7bcdd9e004b30ac9b579
                 width: 300px;
                 border: 5px solid #ffffff;
                 padding: 20px;
                 margin: 20px;
             }
+<<<<<<< HEAD
             /*Image de l'arrière plan*/
+=======
+            div{
+                background-color: #962d0d;
+                width: 200px;
+                border: 5px solid #ffffff;
+                padding: 20px;
+                margin: 20px;  
+            }
+
+>>>>>>> e0971eb19662d994e46b7bcdd9e004b30ac9b579
             body {
                 background-image: url(images/ChristmasBackground.jpg);
+            }
+                div{
+                background-color: #1de003;
+                width: 300px;
+                border: 5px solid #ffffff;
+                padding: 20px;
+                margin: 20px;  
             }
         </style>
 	</head>
@@ -208,6 +231,18 @@
             
                 <li class="dropdown">
                     <button class="dropbtn">4x4</button>
+<<<<<<< HEAD
+                    <div class="dropdown-content">
+                        <center><a href="facile.html">Facile</a></center>
+                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
+                        <center><a href="difficile.html">Difficile</a></center>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <button class="dropbtn">9x9</button>
+=======
+>>>>>>> e0971eb19662d994e46b7bcdd9e004b30ac9b579
                     <div class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
                         <center><a href="intermédiaire.html">Intermédiaire</a></center>
@@ -218,9 +253,9 @@
                 <li class="dropdown">
                     <button class="dropbtn">9x9</button>
                     <div class="dropdown-content">
-                        <center><a href="facile.html">Facile</a></center>
-                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
-                        <center><a href="difficile.html">Difficile</a></center>
+                        <center><a href="9X9.html">Facile</a></center>
+                        <center><a href="9X9Int.html">Intermédiaire</a></center>
+                        <center><a href="9X9Dif.html">Difficile</a></center>
                     </div>
                 </li>
 
@@ -237,7 +272,7 @@
             <a href="niveaux.html"><h4 style="color: #ffffff">Choisir un différent niveau</h4></a>
             <center><h3 style ="color: #ffffff">Vous allez faire difficile?! J'espère que tu connais comment jouer... bonne chance</h3></center>
             <h3 style="color: #21810e"><u>Comment jouer:</u></h3>
-            <div>
+            <div class="instruction">
                 <center><p><u>Instructions:</u></p></center>
                 <p><b>Cette jeu de sudoku est très simple.</p></b>
                 <p><b>Il faut remplir la grille avec des images uniques par ligne, par colonne et par bloc <i>sans répition</i></b></p>
@@ -999,40 +1034,216 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
         </table></center>
 
         <br><br>
-        <center><button onclick="verifierSolution()">Vérifier la solution</button></center>
-        <center><div id="divAffiche"></div></center>
+        
+
+        <button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
+        <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
+    </center>
+    <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
 
 
-        <script>
+    <script>
+let score = 0;
+let timerInterval
 
-        function entreeValide() {
-            
-                if ((document.getElementById("case1").value == "🥛") && 
-                    (document.getElementById("case2").value == "🍪") &&
-                    (document.getElementById("case3").value == "🍪") &&
-                    (document.getElementById("case4").value == "🎁") &&
-                    (document.getElementById("case5").value == "🎄") &&
-                    (document.getElementById("case6").value == "🎁") &&
-                    (document.getElementById("case7").value == "🥛") &&
-                    (document.getElementById("case8").value == "🥛") &&
-                    (document.getElementById("case9").value == "🎄") &&
-                    (document.getElementById("case10").value == "🎁") &&
-                    (document.getElementById("case11").value == "🍪")){
-                        return true;
-                    }
-                        return false;       
+
+
+
+// HIGH SCORE SETUP
+function loadHighscore() {
+    const savedHigh = localStorage.getItem("highscore");
+    if (savedHigh !== null) {
+        document.getElementById("highscore").textContent = savedHigh;
+    }
+}
+
+
+function updateHighscore(finalScore) {
+    const currentHigh = parseInt(localStorage.getItem("highscore") || "0", 10);
+    if (finalScore > currentHigh) {
+        localStorage.setItem("highscore", finalScore.toString());
+        document.getElementById("highscore").textContent = finalScore;
+    }
+}
+
+
+https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+   timerInterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+
+        display.textContent = minutes + ":" + seconds;
+
+
+        if (--timer < 0) {
+            clearInterval(timerInterval);  // STOP instead of reset
+            document.getElementById("divAffiche").innerHTML = "Le temps est écoulé! La partie est finie.";
+            montreScore(-2000);
+           
         }
+    }, 1000);
+}
+
+
+
+function montreScore(pointage) {
+    score += pointage;
+    document.getElementById("afficheScore").textContent = score;
+    updateHighscore(score);
+}
+
+
+function entreeValide() {
+    let idCase1 = document.getElementById("case1").value
+    let idCase2 = document.getElementById("case2").value
+    let idCase3 = document.getElementById("case3").value
+    let idCase4 = document.getElementById("case4").value
+    let idCase5 = document.getElementById("case5").value
+    let idCase6 = document.getElementById("case6").value
+    let idCase7 = document.getElementById("case7").value
+    let idCase8 = document.getElementById("case8").value
+    let idCase9 = document.getElementById("case9").value
+    let idCase10 = document.getElementById("case10").value
+    let idCase11 = document.getElementById("case11").value
+if (
+       ( idCase1 == "🥛" )&&
+        (idCase2 == "🍪") &&
+        (idCase3 == "🍪") &&
+        (idCase4 == "🎁") &&
+        (idCase5 == "🎄") &&
+        (idCase6 == "🎁") &&
+        (idCase7 == "🥛") &&
+        (idCase8 == "🥛") &&
+        (idCase9 == "🎄") &&
+        (idCase10 == "🎁") &&
+        (idCase11 == "🍪")
+){
+    return true
+}else{
+    return false
+}
+}
+
 
        function verifierSolution() {
             if (entreeValide()) {
             document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
             montreScore(1000)
             } else {
-            message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            montreScore(-500)
             }
-            affiche.innerHTML = message;
+           
         }
 
+function recommence() {
+    clearInterval(timerInterval)
+    score=0
+    document.getElementById("afficheScore").textContent = score;
+    document.getElementById("divAffiche").innerHTML = "";
+   
+    // Reset inputs
+    for (let i = 1; i <= 11; i++) {
+        const cell = document.getElementById("case"+i);
+        if (cell) {
+            cell.value = "";
+        }
+    }
+   
+    // Restart YOUR timer
+    var troisMinutes = 60 * 3;
+    var display = document.querySelector('#time');
+    startTimer(troisMinutes, display);
+}
+
+
+
+
+window.onload = function () {
+    loadHighscore();
+    var troisMinutes = 60 * 3,
+    display = document.querySelector('#time');
+    startTimer(troisMinutes, display);
+};
+
+        </script>
+        <script>
+            
+//Identifie les quesitons
+//https://stackoverflow.com/questions/43893667/adding-answers-to-a-random-questions-quiz-javascript
+const questions = [
+    {
+question: "Quelle est le nom du prochaine ceinture après le celle d'astéroïdes:",
+answer: "Kuiper"
+    },
+    {
+question: "Laquelle est un métalloïde?: Og, B, Sc",
+answer: "B"
+    },
+    {
+question: "C’est quoi le nom de ce formule: x= -b ± (√b²-4ac) ÷ 2a",
+answer: "Quadratique"
+    },
+{
+question:"Écris la formule du discriminant dans la formule suivant: x= -b ± (√b²-4ac) ÷ 2a",
+answer: "b² - 4ac" || "b²-4ac" ||"b² -4ac" || "b²- 4ac" || "√b²-4ac"
+
+},
+{
+question:"Est-ce que la participe passé employé sans auxiliaire est accorder en genre et en nombre avec le sujet?",
+answer: "Non"
+},
+{
+question:"C’est un proposition subordonnée circonstancielle de quoi?: \nParce que le milliardaire n’a pas récolté sans peine, …",
+answer: "Cause"
+},
+{
+question:"C’est quoi le nom du components qui est activé/désactivé quand on utilise un lumière?: ",
+answer: "Interrupteur"
+},
+{
+question:"L’ampoule a plusieurs different symbole possible qui le représente dans un circuit?:",
+answer: "Oui"
+},
+{
+question:"Subordonnée Circonstancielle de temps, cause ou _____",
+answer: "But"
+},
+{
+question:"Un autre mot pour un angle opposé par le sommet",
+answer: "Sécante"
+},
+  ];
+
+//https://www.programiz.com/javascript/examples/get-random-item#:~:text=Example:%20Get%20Random%20Item%20From%20an%20Array&text=In%20the%20above%20program%2C%20a,access%20a%20random%20array%20element. 
+//Prend les questions et utilise math.random et math.floor pour les choisir au hazard
+function trouveQuestionAuhazard() {
+{
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    return questions[randomIndex];
+}
+}
+//Affiche le question au utilisateur et leur fais répondre, les points sont accorder dépendant du difficulté et résultat
+function donneQuestion(){
+const questionChoisis = trouveQuestionAuhazard(questions);
+let réponse = prompt(questionChoisis.question);
+
+if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase()) {
+    montreScore(900)
+} else{
+    montreScore(-500)
+}
+}
         </script>
     </body>
 </html>
+
+
+
