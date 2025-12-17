@@ -6,14 +6,14 @@
         <meta charset="UTF-8">
         <title>Projet Final - Test</title>
         <style>
-             body{
+            body{
                 margin: 0;
                 padding: 0;
             }
             h2, p{
                 margin: 10px;
                 }
-           
+            /*Style de barre de navigation*/
             ul {
                 list-style-type: none;
                 margin: 0;
@@ -22,8 +22,7 @@
                 display: flex;
                 justify-content: center;
             }
-
-
+            /*Couleur de texte dans la barre de navigation*/
             ul li a {
                 display: block;
                 color: white;
@@ -31,18 +30,15 @@
                 text-decoration: none;
             }
 
-
             ul li a:hover {
                 background-color: #080336;
             }
-
-
+            
             .dropdown {
                 position: relative;
             }
 
-
-            /* Style du bouton Dropdown */
+            /* Style the dropdown button */
             .dropbtn {
             background-color: #060224;
             color: white;
@@ -52,17 +48,16 @@
             cursor: pointer;
             }
 
-
-            /*choses dans le dropdown */
+            /* Dropdown content */
             .dropdown-content {
             margin-top: 0px;
             display: none;
             position: absolute;
             background-color: #080336;
-            min-width: 20px;
+            min-width: 50px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            
             }
-
 
             /* Links inside dropdown content */
             .dropdown-content a {
@@ -70,20 +65,18 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            
             }
-
 
             /* Change color of dropdown links on hover */
             .dropdown-content a:hover {
             background-color: #080336
             }
 
-
             /* Show the dropdown content on hover */
             .dropdown:hover .dropdown-content {
             display: block;
             }
-
 
             /* Change background color of dropdown button on hover */
             .dropdown:hover .dropbtn {
@@ -93,32 +86,115 @@
             left: 0px;
             }
 
-
-            .instruction{
-                background-color: #962d0d;
-                width: 300px;
+            div{
+                background-color: #bd1a1a;
+                width: 150px;
                 border: 5px solid #ffffff;
-                padding: 20px;
+                padding: 50px;
                 margin: 20px;
             }
-            div{
-                background-color: #962d0d;
-                width: 300px;
-                border: 5px solid #ffffff;
-                padding: 20px;
-                margin: 20px;  
+            table, td {
+                border: 2px solid rgb(97, 91, 91);
+                border-collapse: collapse;
+                padding: 10px;
             }
 
+            /* Table styling */
+            table {
+                margin-top: 20px;
+                border-collapse: collapse;
+                background: #fff;
+                box-shadow: 0 14px 12px rgba(0, 0, 0, 0.15);
+                border-radius: 22px;
+                overflow: hidden;
+            }
 
-            body {
+            td {
+                height: 65px;
+                width: 65px;
+                border: 2px solid #807d7d;
+                font-size: 35px;
+                padding: 3px;
+            }
+
+            /* Dropdown styling */
+            select {
+                font-size: 35px;
+                border-radius: 20px;
+                padding: 4px;
+                border: 1px solid #4e3232;
+                cursor: pointer;
+                background-color: #ffffff;
+            }
+
+            /* Button styling */
+            button {
+                margin-top: 25px;
+                padding: 12px 22px;
+                font-size: 18px;
+                background-color: #d62c2c;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: 0.2s;
+            }
+
+            button:hover {
+                background-color: #a61f1f;
+            }
+.sudoku-grid {
+    border-collapse: collapse; /* Essential for borders to merge into single lines */
+    border: 3px solid black;   /* Thick outer boundary for the whole grid */
+    margin: 20px auto;         /* Center the table on the page */
+}
+
+.sudoku-grid td {
+    /* Set cell dimensions large enough for the select box */
+    width: 60px;
+    height: 45px;
+    
+    /* Default thin inner border */
+    border: 1px solid #bbb;
+    
+    text-align: center;
+    padding: 0; /* Remove default cell padding */
+}
+
+/* Style the dropdown list itself so it fits neatly */
+.sudoku-grid select {
+    width: 80px;
+    height: 80px;
+    border: none; /* Remove the default border from the select element */
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 35px; /* Make the emojis visible */
+}
+
+#scoreDisplay {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  color: #d1d0d0;
+  font-weight: bold;
+}
+.instruction{
+                background-color: #e93c08;
+                width: 300px;
+                border: 5px solid #ffffff;
+                padding: 40px;
+                margin: 20px;
+            }
+
+div{
+                background-color: #e93c08;
+                width: 150px;
+                border: 5px solid #ffffff;
+                padding: 40px;
+                margin: 20px;
+            }
+
+    body {
                 background-image: url(images/ChristmasBackground.jpg);
-            }
-                div{
-                background-color: #962d0d;
-                width: 300px;
-                border: 5px solid #ffffff;
-                padding: 20px;
-                margin: 20px;  
             }
         </style>
     </head>
@@ -184,7 +260,7 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
 
         <center><table>
             <tr>
-                <td><center>🎄</center></td>
+                <td><center>🍪</center></td>
                 <td><center><select id="case1">
                     <option></option>
                     <option>🍪</option>
@@ -199,11 +275,6 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                     <option>🎁</option>
                     <option>🎄</option>
                     </select></center></td>
-                <td><center>🎁</center></td>
-            </tr>
-
-
-            <tr>
                 <td><center><select id="case3">
                     <option></option>
                     <option>🍪</option>
@@ -211,6 +282,10 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                     <option>🎁</option>
                     <option>🎄</option>
                     </select></center></td>
+            </tr>
+
+
+            <tr>
                 <td><center><select id="case4">
                     <option></option>
                     <option>🍪</option>
@@ -218,19 +293,7 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                     <option>🎁</option>
                     <option>🎄</option>
                     </select></center></td>
-                <td><center>🥛</center></td>
                 <td><center><select id="case5">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                </select></center></td>
-            </tr>
-
-
-            <tr>
-                <td><center><select id="case6">
                     <option></option>
                     <option>🍪</option>
                     <option>🥛</option>
@@ -238,16 +301,30 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                     <option>🎄</option>
                     </select></center></td>
                 <td><center>🍪</center></td>
+                <td><center>🥛</center></td>
+            </tr>
+
+
+            <tr> 
                 <td><center>🎄</center></td>
+                <td><center>🎁</center></td>
+                <td><center>🥛</center></td>
+                <td><center><select id="case6">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                </select></center></td>
+            </tr>
+            <tr>
                 <td><center><select id="case7">
                     <option></option>
                     <option>🍪</option>
                     <option>🥛</option>
                     <option>🎁</option>
                     <option>🎄</option>
-                </select></center></td>    
-            </tr>
-            <tr>
+                </select></center></td>
                 <td><center><select id="case8">
                     <option></option>
                     <option>🍪</option>
@@ -255,21 +332,8 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                     <option>🎁</option>
                     <option>🎄</option>
                 </select></center></td>
+                <td><center>🎁</center></td> 
                 <td><center><select id="case9">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                </select></center></td>
-                <td><center><select id="case10">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                </select></center></td>
-                <td><center><select id="case11">
                     <option></option>
                     <option>🍪</option>
                     <option>🥛</option>
@@ -356,18 +420,11 @@ function startTimer(duration, display) {
 }
 
 
-
-
-
-
 function montreScore(pointage) {
     score += pointage;
     document.getElementById("afficheScore").textContent = score;
     updateHighscore(score);
 }
-
-
-
 
 function entreeValide() {
     let idCase1 = document.getElementById("case1").value
@@ -379,20 +436,16 @@ function entreeValide() {
     let idCase7 = document.getElementById("case7").value
     let idCase8 = document.getElementById("case8").value
     let idCase9 = document.getElementById("case9").value
-    let idCase10 = document.getElementById("case10").value
-    let idCase11 = document.getElementById("case11").value
 if (
        ( idCase1 == "🥛" )&&
-        (idCase2 == "🍪") &&
-        (idCase3 == "🍪") &&
+        (idCase2 == "🎄") &&
+        (idCase3 == "🎁") &&
         (idCase4 == "🎁") &&
         (idCase5 == "🎄") &&
-        (idCase6 == "🎁") &&
+        (idCase6 == "🍪") &&
         (idCase7 == "🥛") &&
-        (idCase8 == "🥛") &&
-        (idCase9 == "🎄") &&
-        (idCase10 == "🎁") &&
-        (idCase11 == "🍪")
+        (idCase8 == "🍪") &&
+        (idCase9 == "🎄") 
 ){
     return true
 }else{
@@ -400,20 +453,17 @@ if (
 }
 }
 
-
-
-
        function verifierSolution() {
             if (entreeValide()) {
             document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
-            montreScore(1000)
+            montreScore(500)
+            clearInterval(timerInterval);
             } else {
             document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
             montreScore(-500)
             }
            
         }
-
 
 function recommence() {
     clearInterval(timerInterval)
@@ -435,20 +485,12 @@ function recommence() {
     startTimer(troisMinutes, display);
 }
 
-
-
-
-
-
-
-
 window.onload = function () {
     loadHighscore();
     var troisMinutes = 60 * 3,
     display = document.querySelector('#time');
     startTimer(troisMinutes, display);
 };
-
 
         </script>
         <script>
