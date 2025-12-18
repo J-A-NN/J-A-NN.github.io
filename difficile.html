@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>Projet Final - Test</title>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Projet Final - Test</title>
         <style>
-             body{
+            body{
                 margin: 0;
                 padding: 0;
             }
             h2, p{
                 margin: 10px;
                 }
-            
+            /*Style de barre de navigation*/
             ul {
                 list-style-type: none;
                 margin: 0;
@@ -21,7 +22,7 @@
                 display: flex;
                 justify-content: center;
             }
-
+            /*Couleur de texte dans la barre de navigation*/
             ul li a {
                 display: block;
                 color: white;
@@ -32,12 +33,12 @@
             ul li a:hover {
                 background-color: #080336;
             }
-
+            
             .dropdown {
                 position: relative;
             }
 
-            /* Style du bouton Dropdown */
+            /* Style the dropdown button */
             .dropbtn {
             background-color: #060224;
             color: white;
@@ -47,14 +48,15 @@
             cursor: pointer;
             }
 
-            /*choses dans le dropdown */
+            /* Dropdown content */
             .dropdown-content {
             margin-top: 0px;
             display: none;
             position: absolute;
             background-color: #080336;
-            min-width: 20px;
+            min-width: 50px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            
             }
 
             /* Links inside dropdown content */
@@ -63,6 +65,7 @@
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            
             }
 
             /* Change color of dropdown links on hover */
@@ -82,41 +85,177 @@
             .dropdown-content {
             left: 0px;
             }
+            table, td {
+                border: 2px solid rgb(97, 91, 91);
+                border-collapse: collapse;
+                padding: 10px;
+            }
 
-            .instruction{
-                background-color: #e44718;
+            /* Table styling */
+            table {
+                margin-top: 20px;
+                border-collapse: collapse;
+                background: #fff;
+                box-shadow: 0 14px 12px rgba(0, 0, 0, 0.15);
+                border-radius: 22px;
+                overflow: hidden;
+            }
+
+            td {
+                height: 65px;
+                width: 65px;
+                border: 2px solid #807d7d;
+                font-size: 35px;
+                padding: 3px;
+            }
+
+            /* Dropdown styling */
+            select {
+                font-size: 35px;
+                border-radius: 20px;
+                padding: 4px;
+                border: 1px solid #4e3232;
+                cursor: pointer;
+                background-color: #ffffff;
+            }
+
+            /* Button styling */
+            button {
+                margin-top: 25px;
+                padding: 12px 22px;
+                font-size: 18px;
+                background-color: #d62c2c;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: 0.2s;
+            }
+
+            button:hover {
+                background-color: #a61f1f;
+            }
+.sudoku-grid {
+    border-collapse: collapse; /* Essential for borders to merge into single lines */
+    border: 3px solid black;   /* Thick outer boundary for the whole grid */
+    margin: 20px auto;         /* Center the table on the page */
+}
+
+.sudoku-grid td {
+    /* Set cell dimensions large enough for the select box */
+    width: 60px;
+    height: 45px;
+    
+    /* Default thin inner border */
+    border: 1px solid #bbb;
+    
+    text-align: center;
+    padding: 0; /* Remove default cell padding */
+}
+
+/* Style the dropdown list itself so it fits neatly */
+.sudoku-grid select {
+    width: 80px;
+    height: 80px;
+    border: none; /* Remove the default border from the select element */
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 35px; /* Make the emojis visible */
+}
+
+            /* Style the dropdown list itself so it fits neatly */
+            .sudoku-grid select {
+                width: 80px;
+                height: 80px;
+                border: none; /* Remove the default border from the select element */
+                background-color: transparent;
+                cursor: pointer;
+                font-size: 35px; /* Make the emojis visible */
+            }
+
+            /* --- Prominent Borders using CSS pseudo-classes --- */
+
+            /* Thicker bottom border for the 3rd and 6th rows (tr:nth-child(3), tr:nth-child(6)) */
+            .sudoku-grid tr:nth-child(3n) td {
+                border-bottom: 3px solid black;
+            }
+
+            /* Thicker right border for the 3rd and 6th columns (td:nth-child(3), td:nth-child(6)) */
+            .sudoku-grid td:nth-child(3n) {
+                border-right: 3px solid black;
+            }
+
+            /* Fix: Ensure the *very last* row (row 9) and *very last* column (col 9) use the thin border internally, 
+            as the thick outer table border handles the edge */
+            .sudoku-grid tr:nth-child(9n) td {
+                border-bottom: 1px solid #a3a3a3;
+            }
+
+            .sudoku-grid td:nth-child(9n) {
+                border-right: 1px solid #b3b3b3;
+            }
+            #scoreDisplay {
+                font-family: Arial, sans-serif;
+                font-size: 24px;
+                color: #d1d0d0;
+                font-weight: bold;
+            }
+            /*Une boîte*/
+            .div1 {
+                background-color: #962d0d;
                 width: 300px;
                 border: 5px solid #ffffff;
-                padding: 20px;
+                padding: 40px;
                 margin: 20px;
             }
             div{
                 background-color: #962d0d;
                 width: 200px;
                 border: 5px solid #ffffff;
-                padding: 20px;
-                margin: 20px;  
+                padding: 40px;
+                margin: 20px;
             }
 
+            .container {
+                background-color: transparent;
+                border: none;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .box {
+                background-color: #ac1b1b;
+                width: 750px;
+                border: 5px solid #ffffff;
+                padding: 20px;
+                margin: 20px;
+            }
+
+            /*Image de l'arrière plan*/
             body {
                 background-image: url(images/ChristmasBackground.jpg);
             }
-                div{
-                background-color: #1de003;
-                width: 300px;
-                border: 5px solid #ffffff;
-                padding: 20px;
-                margin: 20px;  
-            }
+    
         </style>
-	</head>
+    </head>
+
 
     <body style="background-color: #32b3eb;">
         <ul>
                 <li><a href="index.html">Accueil</a></li>
-            
+           
                 <li class="dropdown">
                     <button class="dropbtn">4x4</button>
+                    <div class="dropdown-content">
+                        <center><a href="facile.html">Facile</a></center>
+                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
+                        <center><a href="difficile.html">Difficile</a></center>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <button class="dropbtn">9x9</button>
                     <div class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
                         <center><a href="intermédiaire.html">Intermédiaire</a></center>
@@ -133,6 +272,7 @@
                     </div>
                 </li>
 
+
                 <li class="dropdown">
                     <button class="dropbtn">?x?</button>
                     <div class="dropdown-content">
@@ -145,7 +285,7 @@
             <center><h1 style="color: #ffd700">Niveau Difficile</h1></center>
             <center><h3 style ="color: #ffffff">Vous allez faire difficile?! J'espère que tu connais comment jouer... bonne chance</h3></center>
             <h3 style="color: #21810e"><u>Comment jouer:</u></h3>
-            <div class="instruction">
+            <div class="div1">
                 <center><p><u>Instructions:</u></p></center>
                 <p><b>Cette jeu de sudoku est très simple.</p></b>
                 <p><b>Il faut remplir la grille avec des images uniques par ligne, par colonne et par bloc <i>sans répition</i></b></p>
@@ -154,14 +294,28 @@
                 <br>
                 <p><b>Mais fais sûr de te rappeler qu'il répondre à des questions de math, science, français et plus!</b></p>
             </div>
-        <br><br><br>
+
+        <br>
+        <h1 style="color: #ffffff"><center>Choisi le type de sudoku:</center></h1>
+        <center>
+            <div class="container">
+                <div class="box"><h2><center><a href="">4x4</a></center></h2></div>
+                <div class="box"><h2><center><a href="9X9Dif.html">9x9</a></center></h2></div>
+            </div>
+        </center>
+        
+        <br><br>
+
+
 
 
 <d>
 Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
 </d>
 
+
 <br><br><br>
+
 
         <center><table>
             <tr>
@@ -180,10 +334,6 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                     <option>🎁</option>
                     <option>🎄</option>
                     </select></center></td>
-                <td><center>🎁</center></td>
-            </tr>
-
-            <tr>
                 <td><center><select id="case3">
                     <option></option>
                     <option>🍪</option>
@@ -191,6 +341,11 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                     <option>🎁</option>
                     <option>🎄</option>
                     </select></center></td>
+            </tr>
+
+
+            <tr>
+                <td><center>🥛</center></td>
                 <td><center><select id="case4">
                     <option></option>
                     <option>🍪</option>
@@ -198,8 +353,14 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                     <option>🎁</option>
                     <option>🎄</option>
                     </select></center></td>
-                <td><center>🥛</center></td>
                 <td><center><select id="case5">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                    </select></center></td>
+                <td><center><select id="case6">
                     <option></option>
                     <option>🍪</option>
                     <option>🥛</option>
@@ -208,39 +369,32 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                 </select></center></td>
             </tr>
 
+
             <tr>
-                <td><center><select id="case6">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    </select></center></td>
-                <td><center>🍪</center></td>
-                <td><center>🎄</center></td>
                 <td><center><select id="case7">
                     <option></option>
                     <option>🍪</option>
                     <option>🥛</option>
                     <option>🎁</option>
                     <option>🎄</option>
-                </select></center></td>    
-            </tr>
-            <tr>
+                    </select></center></td>
                 <td><center><select id="case8">
                     <option></option>
                     <option>🍪</option>
                     <option>🥛</option>
                     <option>🎁</option>
                     <option>🎄</option>
-                </select></center></td>
-                <td><center><select id="case9">
+                </select></center></td> 
+               <td><center><select id="case9">
                     <option></option>
                     <option>🍪</option>
                     <option>🥛</option>
                     <option>🎁</option>
                     <option>🎄</option>
-                </select></center></td>
+                </select></center></td> 
+                <td><center>🎁</center></td>   
+            </tr>
+            <tr>
                 <td><center><select id="case10">
                     <option></option>
                     <option>🍪</option>
@@ -255,24 +409,28 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                     <option>🎁</option>
                     <option>🎄</option>
                 </select></center></td>
+                <td><center><select id="case12">
+                    <option></option>
+                    <option>🍪</option>
+                    <option>🥛</option>
+                    <option>🎁</option>
+                    <option>🎄</option>
+                </select></center></td>
+                <td><center>🎄</center></td> 
             </tr>
         </table></center>
 
+
         <br><br>
-        
 
         <button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
         <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
     </center>
     <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
 
-
     <script>
 let score = 0;
 let timerInterval
-
-
-
 
 // HIGH SCORE SETUP
 function loadHighscore() {
@@ -282,7 +440,6 @@ function loadHighscore() {
     }
 }
 
-
 function updateHighscore(finalScore) {
     const currentHigh = parseInt(localStorage.getItem("highscore") || "0", 10);
     if (finalScore > currentHigh) {
@@ -291,7 +448,6 @@ function updateHighscore(finalScore) {
     }
 }
 
-
 https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
 function startTimer(duration, display) {
     let timer = duration, minutes, seconds;
@@ -299,13 +455,10 @@ function startTimer(duration, display) {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
-
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-
         display.textContent = minutes + ":" + seconds;
-
 
         if (--timer < 0) {
             clearInterval(timerInterval);  // STOP instead of reset
@@ -316,14 +469,11 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-
-
 function montreScore(pointage) {
     score += pointage;
     document.getElementById("afficheScore").textContent = score;
     updateHighscore(score);
 }
-
 
 function entreeValide() {
     let idCase1 = document.getElementById("case1").value
@@ -337,18 +487,20 @@ function entreeValide() {
     let idCase9 = document.getElementById("case9").value
     let idCase10 = document.getElementById("case10").value
     let idCase11 = document.getElementById("case11").value
+    let idCase12 = document.getElementById("case12").value
 if (
-       ( idCase1 == "🥛" )&&
-        (idCase2 == "🍪") &&
-        (idCase3 == "🍪") &&
+       ( idCase1 == "🍪" )&&
+        (idCase2 == "🎁") &&
+        (idCase3 == "🥛") &&
         (idCase4 == "🎁") &&
         (idCase5 == "🎄") &&
-        (idCase6 == "🎁") &&
-        (idCase7 == "🥛") &&
-        (idCase8 == "🥛") &&
-        (idCase9 == "🎄") &&
+        (idCase6 == "🍪") &&
+        (idCase7 == "🍪") &&
+        (idCase8 == "🎄") &&
+        (idCase9 == "🥛") &&
         (idCase10 == "🎁") &&
-        (idCase11 == "🍪")
+        (idCase11 == "🥛") &&
+        (idCase12 == "🍪")
 ){
     return true
 }else{
@@ -356,14 +508,19 @@ if (
 }
 }
 
-
        function verifierSolution() {
             if (entreeValide()) {
+<<<<<<< HEAD
             document.getElementById("divAffiche").innerHTML = "Félicitations ! Vous avez résolu le puzzle !" + <a href="https://j-a-nn.github.io/index.html">Click moi pour retourné au acceuil!</a>;
             montreScore(1000)
+=======
+            document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
+            montreScore(2000)
+            clearInterval(timerInterval);
+>>>>>>> 3f1e25941c93079fcfd0a066d2bc24e8c8865160
             } else {
             document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
-            montreScore(-500)
+            montreScore(-300)
             }
            
         }
@@ -388,9 +545,6 @@ function recommence() {
     startTimer(troisMinutes, display);
 }
 
-
-
-
 window.onload = function () {
     loadHighscore();
     var troisMinutes = 60 * 3,
@@ -400,7 +554,7 @@ window.onload = function () {
 
         </script>
         <script>
-            
+           
 //Identifie les quesitons
 //https://stackoverflow.com/questions/43893667/adding-answers-to-a-random-questions-quiz-javascript
 const questions = [
@@ -418,7 +572,8 @@ answer: "Quadratique"
     },
 {
 question:"Écris la formule du discriminant dans la formule suivant: x= -b ± (√b²-4ac) ÷ 2a",
-answer: "b² - 4ac" || "b²-4ac" ||"b² -4ac" || "b²- 4ac" || "√b²-4ac"
+answer: "b² - 4ac" || "b²-4ac" ||"b² -4ac" || "b²- 4ac"
+
 
 },
 {
@@ -447,7 +602,8 @@ answer: "Sécante"
 },
   ];
 
-//https://www.programiz.com/javascript/examples/get-random-item#:~:text=Example:%20Get%20Random%20Item%20From%20an%20Array&text=In%20the%20above%20program%2C%20a,access%20a%20random%20array%20element. 
+
+//https://www.programiz.com/javascript/examples/get-random-item#:~:text=Example:%20Get%20Random%20Item%20From%20an%20Array&text=In%20the%20above%20program%2C%20a,access%20a%20random%20array%20element.
 //Prend les questions et utilise math.random et math.floor pour les choisir au hazard
 function trouveQuestionAuhazard() {
 {
@@ -460,6 +616,7 @@ function donneQuestion(){
 const questionChoisis = trouveQuestionAuhazard(questions);
 let réponse = prompt(questionChoisis.question);
 
+
 if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase()) {
     montreScore(900)
 } else{
@@ -469,6 +626,12 @@ if (réponse && réponse.toLowerCase() === questionChoisis.answer.toLowerCase())
         </script>
     </body>
 </html>
+
+
+
+
+
+
 
 
 
