@@ -1198,17 +1198,10 @@ if (
 }
 
         function verifierSolution() {
-<<<<<<< HEAD
-            var affiche = document.getElementById("divAffiche");
             if (entreeValides()) {
-            message = "Félicitations ! Vous avez résolu le puzzle !" + <a href="https://j-a-nn.github.io/index.html">Click moi pour aller au prochain difficulté!</a>;
+            document.getElementById("divAffiche").innerHTML = "Félicitations ! Vous avez résolu le puzzle !" + <a href="https://j-a-nn.github.io/index.html">Click moi pour aller au prochain difficulté!</a>;
             updateScore(1000)
-=======
-            if (entreeValide()) {
-            document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
-            montreScore(2000)
             clearInterval(timerInterval);
->>>>>>> 3f1e25941c93079fcfd0a066d2bc24e8c8865160
             } else {
             document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
             montreScore(-300)
