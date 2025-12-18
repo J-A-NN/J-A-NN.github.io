@@ -1039,9 +1039,9 @@ if (
 }
 
         function verifierSolution() {
-            if (entreeValide()) {
-            document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
-            montreScore(2000)
+            if (entreeValides()) {
+             document.getElementById("divAffiche").innerHTML = "Félicitations ! Vous avez résolu le puzzle !" + <a href="https://j-a-nn.github.io/9X9Dif.html">Click moi pour aller au prochain difficulté!</a>;
+            updateScore(1000)
             clearInterval(timerInterval);
             } else {
             document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
