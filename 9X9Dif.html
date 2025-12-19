@@ -1198,7 +1198,7 @@ if (
 }
 
         function verifierSolution() {
-            if (entreeValides()) {
+            if (entreeValide()) {
             document.getElementById("divAffiche").innerHTML = "Félicitations ! Vous avez résolu le puzzle !" 
             updateScore(1000)
             clearInterval(timerInterval);
@@ -1215,7 +1215,7 @@ function recommence() {
     document.getElementById("divAffiche").innerHTML = "";
    
     // Reset inputs
-    for (let i = 1; i <= 11; i++) {
+    for (let i = 1; i <= 58; i++) {
         const cell = document.getElementById("case"+i);
         if (cell) {
             cell.value = "";
