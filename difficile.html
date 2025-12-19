@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!--Les commentaires pour les tableaux et le javascript son sur les documents de 9X9-->
 <html>
 
 
@@ -315,14 +315,15 @@
 
 
 
-<center><d>
+<center><d><!--Crée une barre qui montre le meilleur score, le score et le temps restant.-->
 Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
 </d></center>
 
 
 <br><br><br>
 
-
+<!--Création d'un tableau qui a soit une case qui est déjà pris par une image ou soit 
+un dropdown ou l'utilisateur choisit l'image a mettre dans la case. Source: https://stackoverflow.com/questions/25879753/how-can-i-style-a-select-option-like-a-table-->
         <center><table>
             <tr>
                 <td><center>🎄</center></td>
@@ -428,17 +429,19 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
 
 
         <br><br>
-
+<!--Crée deux boutons. Un vérifie si la solution est la vrait solution et quand tu clique dessus il va avoir une alerte avec 
+les questions éducatif. Un autre bouton est celle de recommence.-->
         <button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
         <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
     </center>
+     <!--Une boite vide qui est remplit par du text des fonctions plus tard dans le code.-->
     <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
 
     <script>
-let score = 0;
-let timerInterval
+        let score = 0; //Commence avec le score à zero.
+        let tempsRestant //Création d'une variable vide.
 
-// HIGH SCORE SETUP
+
 function loadHighscore() {
     const savedHigh = localStorage.getItem("highscore");
     if (savedHigh !== null) {
@@ -457,7 +460,7 @@ function updateHighscore(finalScore) {
 https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
 function startTimer(duration, display) {
     let timer = duration, minutes, seconds;
-   timerInterval = setInterval(function () {
+   tempsRestant = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -467,7 +470,7 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            clearInterval(timerInterval);  // STOP instead of reset
+            clearInterval(timerInterval);  
             document.getElementById("divAffiche").innerHTML = "Le temps est écoulé! La partie est finie.";
             montreScore(-2000);
            
@@ -518,7 +521,7 @@ if (
             if (entreeValide()) {
             document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
             montreScore(2000)
-            clearInterval(timerInterval);
+            clearInterval(tempsRestant);
             } else {
             document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
             montreScore(-300)
@@ -527,12 +530,12 @@ if (
         }
 
 function recommence() {
-    clearInterval(timerInterval)
+    clearInterval(tempsRestant)
     score=0
     document.getElementById("afficheScore").textContent = score;
     document.getElementById("divAffiche").innerHTML = "";
    
-    // Reset inputs
+    
     for (let i = 1; i <= 12; i++) {
         const cell = document.getElementById("case"+i);
         if (cell) {
@@ -540,7 +543,7 @@ function recommence() {
         }
     }
    
-    // Restart YOUR timer
+    
     var troisMinutes = 60 * 3;
     var display = document.querySelector('#time');
     startTimer(troisMinutes, display);

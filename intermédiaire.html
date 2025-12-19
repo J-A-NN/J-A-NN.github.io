@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--Les commentaires pour les tableaux et le javascript son sur les documents de 9X9-->
 <html>
 
 
@@ -386,9 +386,9 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
 
     <script>
 let score = 0;
-let timerInterval
+let tempsRestant
 
-// HIGH SCORE SETUP
+
 function loadHighscore() {
     const savedHigh = localStorage.getItem("highscore");
     if (savedHigh !== null) {
@@ -407,7 +407,7 @@ function updateHighscore(finalScore) {
 https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
 function startTimer(duration, display) {
     let timer = duration, minutes, seconds;
-   timerInterval = setInterval(function () {
+   tempsRestant = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -474,20 +474,18 @@ if (
         }
 
 function recommence() {
-    clearInterval(timerInterval)
+    clearInterval(tempsRestant)
     score=0
     document.getElementById("afficheScore").textContent = score;
     document.getElementById("divAffiche").innerHTML = "";
    
-    // Reset inputs
     for (let i = 1; i <= 11; i++) {
         const cell = document.getElementById("case"+i);
         if (cell) {
             cell.value = "";
         }
     }
-   
-    // Restart YOUR timer
+ 
     var troisMinutes = 60 * 3;
     var display = document.querySelector('#time');
     startTimer(troisMinutes, display);
@@ -499,7 +497,6 @@ window.onload = function () {
     display = document.querySelector('#time');
     startTimer(troisMinutes, display);
 };
-
         </script>
         <script>
            

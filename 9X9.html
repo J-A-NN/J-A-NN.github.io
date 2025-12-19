@@ -248,12 +248,13 @@ div{
             </div>
         <br>
 
-<center><d>
+<center><d> <!--Crée une barre qui montre le meilleur score, le score et le temps restant.-->
 Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
 </d></center>
 
 
-
+<!--Création d'un tableau qui a soit une case qui est déjà pris par une image ou soit 
+un dropdown ou l'utilisateur choisit l'image a mettre dans la case. Source: https://stackoverflow.com/questions/25879753/how-can-i-style-a-select-option-like-a-table-->
         <center><table id="sudoku-board" class="sudoku-grid">
             <tr>
                 <td><center>🦌</center></td>
@@ -788,24 +789,27 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
             </tr>
         </table></center>
         <br><br>
-
+<!--Crée deux boutons. Un vérifie si la solution est la vrait solution et quand tu clique dessus il va avoir une alerte avec 
+les questions éducatif. Un autre bouton est celle de recommence.-->
         <center><button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
         <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
     </center>
+<!--Une boite vide qui est remplit par du text des fonctions plus tard dans le code.-->
     <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
 
         <script>
-        let score = 0;
-        let timerInterval
+        let score = 0; //Commence avec le score à zero.
+        let tempsRestant //Création d'une variable vide.
 
-        // HIGH SCORE SETUP
+        // Création d'une fonction qui gard le highscore dans le localStorage. Source pour cette fonction et la prochaine. https://stackoverflow.com/questions/63634765/making-a-high-score-best-time-localstorage-in-javascript
         function loadHighscore() {
             const savedHigh = localStorage.getItem("highscore");
             if (savedHigh !== null) {
                 document.getElementById("highscore").textContent = savedHigh;
             }
         }
-
+        /*Création d'une fonction qui vérifie si le score est plus grand que le highscore. Si le score est plus élevé, sa va 
+         remplacer la valeur du highscore avec la valeur du score.*/
         function updateHighscore(finalScore) {
             const currentHigh = parseInt(localStorage.getItem("highscore") || "0", 10);
             if (finalScore > currentHigh) {
@@ -814,10 +818,11 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
             }
         }
 
-        https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
+        /* Fonction qui crée le temps restant et fait le décompte chaque seconde. Au lieu d'avoir seulement des seconds sa transform les 
+         secondes pour avoir des minutes et des sencondeshttps://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript*/
         function startTimer(duration, display) {
             let timer = duration, minutes, seconds;
-        timerInterval = setInterval(function () {
+        tempsRestant = setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
 
@@ -827,7 +832,9 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                 display.textContent = minutes + ":" + seconds;
 
                 if (--timer < 0) {
-                    clearInterval(timerInterval);  // STOP instead of reset
+                    clearInterval(tempsRestant);  /* Le clear Interval du temps restant arrête le décompte. Cette partie est si le temps est écoulé sa va garder le 
+                    décompte a zéro, diminuer le score du utilisateur et montrer des un texte qui dit que tu as perdue dans la belle boite en dessus des bouton, vérifier 
+                    solution et recommence. Source pour le clear interval, : https://stackoverflow.com/questions/8635502/how-do-i-clear-all-intervals*/
                     document.getElementById("divAffiche").innerHTML = "Le temps est écoulé! La partie est finie.";
                     montreScore(-2000);
                 
@@ -835,12 +842,16 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
             }, 1000);
         }
 
+        //Une fonction qui montre le score dans la belle boite par dessus du sudoku. Ensuite sa fait appelle a la fonction du highscore.
         function montreScore(pointage) {
             score += pointage;
             document.getElementById("afficheScore").textContent = score;
             updateHighscore(score);
         }
 
+        /*Fonction qui vérifie les entré de l'utilisateur. Sa crée une variable pour chaque boite qui a un dropdown ou l'utilisateur 
+         doit mettre une image. Ensuite il y a un if qui vérifie si chaque dropdown correspond avec l'image de la solution. Si vrai sa va retourner 
+         true et si c'est faux sa va retourner false. */
         function entreeValide() {
             let idCase1 = document.getElementById("case1").value
             let idCase2 = document.getElementById("case2").value
@@ -936,24 +947,31 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
         }
         }
 
+        /* Si la fonction au paravent retourne vrai, un text dans la belle boite en dessus des boutons va dire que tu as réusi et ton score 
+        va augmenter de 2000 points. Aussi sa va arrêter le décompte alors que tu connais combien de temps tu a fini le sudoku. 
+        Si la fonction retourne false, la belle boite va dire que soit ta pas bien fait le sudoku ou il y a des boites qui doivent êtres rempli.
+        Sa va enlever 300 points de ton score. */
        function verifierSolution() {
             if (entreeValide()) {
             document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!"
             montreScore(2000)
-            clearInterval(timerInterval);
+            clearInterval(tempsRestant);
             } else {
             document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
             montreScore(-300)
             }
         }
-
+        /* Création de la fonction recommence qui est activer quand l'utilisateur pousse le bouton recommence, 
+        En premier sa va arrêter le décompte, remettre le score a zéro et enlever tout les mots de la belle boite.
+        Ensuite sa passe a travers tout les boites qui on un dropdown et enlève toutes images que l'utilisateur a mis.
+        Finalement sa recommence le décompte.*/
         function recommence() {
-            clearInterval(timerInterval)
+            clearInterval(tempsRestant)
             score=0
             document.getElementById("afficheScore").textContent = score;
             document.getElementById("divAffiche").innerHTML = "";
         
-            // Reset inputs
+            
             for (let i = 1; i <= 39; i++) {
                 const cell = document.getElementById("case"+i);
                 if (cell) {
@@ -961,12 +979,15 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
                 }
             }
         
-            // Restart YOUR timer
+            
             var troisMinutes = 60 * 5;
             var display = document.querySelector('#time');
             startTimer(troisMinutes, display);
         }
 
+        /*Ceci va ce décrocher chaque fois que la page est ouvert. Sa va load ton highscore du local 
+        storage et sa commencer le décompte du timer. La source est la même pour le highscore et j'ai ajouter 
+        le timer de la source du timer. */ 
         window.onload = function () {
             loadHighscore();
             var troisMinutes = 60 * 5,
@@ -974,28 +995,31 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
             startTimer(troisMinutes, display);
         };
         
+        /*Cette fonction est pour mettres des bordures plus épais sur les collones et ranger 3 et 6. 
+        Ceci permet de démontrer plus le sudoku comme un sudoku vrai ou sa montre chaque case 3X3 plus éclaire.
+        Source:  https://www.youtube.com/watch?v=rnD6Ds3fVXI */ 
         function styleSudokuBorders() {
             const table = document.getElementById('sudoku-board');
             if (!table) return;
 
             for (let i = 0; i < 9; i++) {
             for (let j = 0; j < 9; j++) {
-                // Get the cell at row i, column j
+                
                 const cell = table.rows[i].cells[j];
 
-                // Apply a thicker bottom border to the 3rd and 6th rows
+                
                 if ((i + 1) % 3 === 0 && i !== 8) {
                 cell.style.borderBottom = '3px solid black';
                 }
 
-                // Apply a thicker right border to the 3rd and 6th columns
+                
                 if ((j + 1) % 3 === 0 && j !== 8) {
                 cell.style.borderRight = '3px solid black';
                 }
             }
             }
         }
-        styleSudokuBorders()
+        styleSudokuBorders() // Fait appelle au style. 
 
 const questions = [
     {
