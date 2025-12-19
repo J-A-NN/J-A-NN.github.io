@@ -143,62 +143,62 @@
             button:hover {
                 background-color: #a61f1f;
             }
-.sudoku-grid {
-    border-collapse: collapse; /* Essential for borders to merge into single lines */
-    border: 3px solid black;   /* Thick outer boundary for the whole grid */
-    margin: 20px auto;         /* Center the table on the page */
-}
+            .sudoku-grid {
+                border-collapse: collapse; /* Essential for borders to merge into single lines */
+                border: 3px solid black;   /* Thick outer boundary for the whole grid */
+                margin: 20px auto;         /* Center the table on the page */
+            }
 
-.sudoku-grid td {
-    /* Set cell dimensions large enough for the select box */
-    width: 60px;
-    height: 45px;
-    
-    /* Default thin inner border */
-    border: 1px solid #bbb;
-    
-    text-align: center;
-    padding: 0; /* Remove default cell padding */
-}
+            .sudoku-grid td {
+                /* Set cell dimensions large enough for the select box */
+                width: 60px;
+                height: 45px;
+                
+                /* Default thin inner border */
+                border: 1px solid #bbb;
+                
+                text-align: center;
+                padding: 0; /* Remove default cell padding */
+            }
 
-/* Style the dropdown list itself so it fits neatly */
-.sudoku-grid select {
-    width: 80px;
-    height: 80px;
-    border: none; /* Remove the default border from the select element */
-    background-color: transparent;
-    cursor: pointer;
-    font-size: 35px; /* Make the emojis visible */
-}
+            /* Style the dropdown list itself so it fits neatly */
+            .sudoku-grid select {
+                width: 80px;
+                height: 80px;
+                border: none; /* Remove the default border from the select element */
+                background-color: transparent;
+                cursor: pointer;
+                font-size: 35px; /* Make the emojis visible */
+            }
 
-/* --- Prominent Borders using CSS pseudo-classes --- */
+            /* --- Prominent Borders using CSS pseudo-classes --- */
 
-/* Thicker bottom border for the 3rd and 6th rows (tr:nth-child(3), tr:nth-child(6)) */
-.sudoku-grid tr:nth-child(3n) td {
-    border-bottom: 3px solid black;
-}
+            /* Thicker bottom border for the 3rd and 6th rows (tr:nth-child(3), tr:nth-child(6)) */
+            .sudoku-grid tr:nth-child(3n) td {
+                border-bottom: 3px solid black;
+            }
 
-/* Thicker right border for the 3rd and 6th columns (td:nth-child(3), td:nth-child(6)) */
-.sudoku-grid td:nth-child(3n) {
-    border-right: 3px solid black;
-}
+            /* Thicker right border for the 3rd and 6th columns (td:nth-child(3), td:nth-child(6)) */
+            .sudoku-grid td:nth-child(3n) {
+                border-right: 3px solid black;
+            }
 
-/* Fix: Ensure the *very last* row (row 9) and *very last* column (col 9) use the thin border internally, 
-   as the thick outer table border handles the edge */
-.sudoku-grid tr:nth-child(9n) td {
-    border-bottom: 1px solid #a3a3a3;
-}
+            /* Fix: Ensure the *very last* row (row 9) and *very last* column (col 9) use the thin border internally, 
+            as the thick outer table border handles the edge */
+            .sudoku-grid tr:nth-child(9n) td {
+                border-bottom: 1px solid #a3a3a3;
+            }
 
-.sudoku-grid td:nth-child(9n) {
-    border-right: 1px solid #b3b3b3;
-}
-#scoreDisplay {
-  font-family: Arial, sans-serif;
-  font-size: 24px;
-  color: #d1d0d0;
-  font-weight: bold;
-}
-.instruction{
+            .sudoku-grid td:nth-child(9n) {
+                border-right: 1px solid #b3b3b3;
+            }
+            #scoreDisplay {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: #d1d0d0;
+            font-weight: bold;
+            }
+            .instruction{
                 background-color: #e93c08;
                 width: 300px;
                 border: 5px solid #ffffff;
@@ -206,16 +206,32 @@
                 margin: 20px;
             }
 
-div{
-                background-color: #e93c08;
-                width: 150px;
+             .container {
+                background-color: transparent;
+                border: none;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .box {
+                background-color: #ac1b1b;
+                width: 750px;
                 border: 5px solid #ffffff;
-                padding: 40px;
+                padding: 20px;
                 margin: 20px;
             }
 
-    body {
+            body {
                 background-image: url(images/ChristmasBackground.jpg);
+            }
+
+            .divAffiche {
+                background-color: #21810e;
+                width: 250px;
+                border: 5px solid #ffffff;
+                padding: 20px;
+                margin: 20px;
             }
         </style>
     </head>
@@ -229,7 +245,7 @@ div{
                     <button class="dropbtn">4x4</button>
                     <div class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
-                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
+                        <center><a href="intermediaire.html">Intermédiaire</a></center>
                         <center><a href="difficile.html">Difficile</a></center>
                     </div>
                 </li>
@@ -249,12 +265,14 @@ div{
                     <button class="dropbtn">?x?</button>
                     <div class="dropdown-content">
                         <center><a href="facile.html">Facile</a></center>
-                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
+                        <center><a href="intermediaire.html">Intermédiaire</a></center>
                         <center><a href="difficile.html">Difficile</a></center>
                     </div>
                 </li>
             </ul>
-            <center><h1 style="color: #ffd700">Niveau Difficile</h1></center>
+            <center><h1 style="color: #ffd700">Niveau Intermédiaire</h1></center>
+            <!--Pour retourner à la dernière page-->
+            <a href="niveaux.html"><u><h3 style="color: #ffffff">Choisi un différent niveau</h3></u></a>
             <center><h3 style ="color: #ffffff">Vous allez faire difficile?! J'espère que tu connais comment jouer... bonne chance</h3></center>
             <h3 style="color: #21810e"><u>Comment jouer:</u></h3>
             <div class="instruction">
@@ -266,7 +284,16 @@ div{
                 <br>
                 <p><b>Mais fais sûr de te rappeler qu'il répondre à des questions de math, science, français et plus!</b></p>
             </div>
-        <br><br><br>
+            <br>
+            <h1 style="color: #ffffff"><center>Choisi un type de sudoku</center></h1>
+            <center>
+            <div class="container">
+                <div class="box"><h2><center>4x4</center></h2></div>
+                <div class="box"><h2><a href="9X9Int.html">9x9</a></h2></div>
+            </div>
+            </center>
+        
+        <br><br>
 
 
 
@@ -384,7 +411,7 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
         <button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
         <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
     </center>
-    <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
+    <center><div id="divAffiche" style="font-size: 24px;"></div></center>
 
 
 
