@@ -1039,7 +1039,7 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
             }
 
         function verifierSolution() {
-            if (entreeValides()) {
+            if (entreeValide()) {
              document.getElementById("divAffiche").innerHTML = "Félicitations ! Vous avez résolu le puzzle !" 
             updateScore(1000)
             clearInterval(timerInterval);
