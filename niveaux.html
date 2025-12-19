@@ -50,7 +50,7 @@
             display: block;
             }
 
-            /* Change background color of dropdown button on hover */
+            /*Couleur du bouton dropdown*/
             .dropdown:hover .dropbtn {
             background-color: #080336;
             }
@@ -58,13 +58,13 @@
             left: 0px;
             }
 
-            /*Pour mettre les boîtes l'un à côté de l'autre-->*/
+            /*Une boîte qui va mettre les autres au centre et les aligner*/
             .container {
                 display: flex;
-                /*Pour mettre au centre*/
                 justify-content: center;
                 gap: 10px
             }
+
             /*La boîte*/
             .box {
                 background-color: #962d0d;
@@ -73,7 +73,7 @@
                 padding: 20px;
                 margin: 20px;
             }
-
+            /*Arrière-plan*/
             body {
                 background-image: url(images/ChristmasBackground.jpg);
             }
@@ -81,19 +81,28 @@
 	</head>
     <body>
         <!--Voici une page pour choisir les niveaux du jeu-->
+
+        <!--titre-->
         <h1 style="color: #d31c0f"><center>Choisi un niveau</center></h2>
+        <!--option pour retourner à l'accueil-->
         <a href="index.html"><h3 style="color: #ffffff"> Retour à l'accueil</h3></a>
         <br>
+            <!--Une boîte pour aligner et les autres boîtes au centre-->
             <div class="container">
+            <!--Boîtes pour choisir les niveaux-->
             <div class="box">
+                <!--Lien vers un niveau-->
                 <h3><a href="facile.html"><center>Facile</center></a></h3>
+                <!--Description-->
                 <p>Un petit jeu de sudoku avec pas trop de défi. Comme un exercice.</p>
             </div>
             <div class="box">
+                <!--Lien vers un niveau-->
                 <h3><a href="intermediaire.html"><center>Intermédiaire</center></a></h3>
                 <p>Un jeu qui va te forcer à penser. Bonne chance</p>
             </div>
             <div class="box">
+                <!--Lien vers un niveau-->
                 <h3><a href="difficile.html"><center>Difficile</center></a></h3>
                 <p>Un défi géant! Avec des questios si difficiles, j'espère que tu survie!</p>
             </div>
@@ -101,6 +110,7 @@
         <br>
         <h2 style="color: #ffffff"><center>Joue bien!</center></h2>
         
+        <!--Un phot avec plein de personnages de noel-->
         <center><img src="images/noel.png" width="50%"/></center>
     </body>
 </html>

@@ -38,7 +38,7 @@
                 position: relative;
             }
 
-            /* Style the dropdown button */
+            /* Style du bouton dropdown*/
             .dropbtn {
             background-color: #060224;
             color: white;
@@ -48,18 +48,18 @@
             cursor: pointer;
             }
 
-            /* Dropdown content */
+            /* style de boîte de Dropdown  */
             .dropdown-content {
             margin-top: 0px;
             display: none;
             position: absolute;
             background-color: #080336;
-            min-width: 50px;
+            width: 100px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             
             }
 
-            /* Links inside dropdown content */
+            /* Liens dans le dropdown*/
             .dropdown-content a {
             color: rgb(255, 255, 255);
             padding: 12px 16px;
@@ -68,17 +68,17 @@
             
             }
 
-            /* Change color of dropdown links on hover */
+            /*Couleur des liens dans le dropdown*/
             .dropdown-content a:hover {
             background-color: #080336
             }
 
-            /* Show the dropdown content on hover */
+            /*Pour montrer les éléments dans la boîte de dropdown*/
             .dropdown:hover .dropdown-content {
             display: block;
             }
 
-            /* Change background color of dropdown button on hover */
+            /*Couleur de la boîte de dropdown*/
             .dropdown:hover .dropbtn {
             background-color: #080336;
             }
@@ -263,23 +263,9 @@
                     </div>
                 </li>
 
-                <li class="dropdown">
-                    <button class="dropbtn">9x9</button>
-                    <div class="dropdown-content">
-                        <center><a href="9X9.html">Facile</a></center>
-                        <center><a href="9X9Int.html">Intermédiaire</a></center>
-                        <center><a href="9X9Dif.html">Difficile</a></center>
-                    </div>
-                </li>
-
-
-                <li class="dropdown">
+                 <li class="dropdown">
+                    <!--bouton de dropdown-->
                     <button class="dropbtn">?x?</button>
-                    <div class="dropdown-content">
-                        <center><a href="facile.html">Facile</a></center>
-                        <center><a href="intermédiaire.html">Intermédiaire</a></center>
-                        <center><a href="difficile.html">Difficile</a></center>
-                    </div>
                 </li>
             </ul>
             <!--Le niveau-->
@@ -288,6 +274,7 @@
             <a href="niveaux.html"><u><h3 style="color: #ffffff">Choisi un différent niveau</h3></u></a>
             <center><h3 style ="color: #ffffff">Vous allez faire difficile?! J'espère que tu connais comment jouer... bonne chance</h3></center>
             <h3 style="color: #21810e"><u>Comment jouer:</u></h3>
+            <!--Les instructions-->
             <div class="div1">
                 <center><p><u>Instructions:</u></p></center>
                 <p><b>Cette jeu de sudoku est très simple.</p></b>
@@ -299,51 +286,42 @@
             </div>
 
         <br>
-        <h1 style="color: #ffffff"><center>Choisi le type de sudoku:</center></h1>
-        <center>
-            <div class="container">
-                <div class="box"><h2><center><a href="">4x4</a></center></h2></div>
-                <div class="box"><h2><center><a href="9X9Dif.html">9x9</a></center></h2></div>
-            </div>
-        </center>
         
-        <br><
-
-
-
-
-<d>
-Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
-</d>
-
-
-<br><br><br>
-
-
-        <center><table>
-            <tr>
-                <td><center>🎄</center></td>
-                <td><center><select id="case1">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
+        <br>
+        <center><h2 style="color: #ffd700">Sudoku: 4x4</h2></center>
+    <center>
+        <!--Pour changer la couleur du text-->
+        <d><h3 style="color: #ffffff">
+            <!--Le score et le highscore du jeu-->
+            Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
+        </h3></d>
+    </center>
+<br>
+    <center><table>
+        <!--Le sudoku-->
+        <tr>
+            <td><center>🎄</center></td>
+            <td><center><select id="case1">
+                <option></option>
+                <option>🍪</option>
+                <option>🥛</option>
+                <option>🎁</option>
+                <option>🎄</option>
                 </select></center></td>
-                <td><center><select id="case2">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    </select></center></td>
-                <td><center><select id="case3">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    </select></center></td>
+            <td><center><select id="case2">
+                <option></option>
+                <option>🍪</option>
+                <option>🥛</option>
+                <option>🎁</option>
+                <option>🎄</option>
+                </select></center></td>
+            <td><center><select id="case3">
+                <option></option>
+                <option>🍪</option>
+                <option>🥛</option>
+                <option>🎁</option>
+                <option>🎄</option>
+                </select></center></td>
             </tr>
 
 
@@ -425,10 +403,11 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
 
 
         <br><br>
-
+    <center>
         <button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
         <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
     </center>
+    <!--Boîte qui va afficher des différents textets dépendant de la résultat du joeur-->
     <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
 
     <script>
@@ -530,7 +509,7 @@ function recommence() {
     document.getElementById("divAffiche").innerHTML = "";
    
     // Reset inputs
-    for (let i = 1; i <= 11; i++) {
+    for (let i = 1; i <= 12; i++) {
         const cell = document.getElementById("case"+i);
         if (cell) {
             cell.value = "";

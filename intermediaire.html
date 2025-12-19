@@ -206,22 +206,6 @@
                 margin: 20px;
             }
 
-             .container {
-                background-color: transparent;
-                border: none;
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-            }
-
-            .box {
-                background-color: #ac1b1b;
-                width: 750px;
-                border: 5px solid #ffffff;
-                padding: 20px;
-                margin: 20px;
-            }
-
             body {
                 background-image: url(images/ChristmasBackground.jpg);
             }
@@ -261,13 +245,9 @@
                 </li>
 
 
-                <li class="dropdown">
+                 <li class="dropdown">
+                    <!--bouton de dropdown-->
                     <button class="dropbtn">?x?</button>
-                    <div class="dropdown-content">
-                        <center><a href="facile.html">Facile</a></center>
-                        <center><a href="intermediaire.html">Intermédiaire</a></center>
-                        <center><a href="difficile.html">Difficile</a></center>
-                    </div>
                 </li>
             </ul>
             <center><h1 style="color: #ffd700">Niveau Intermédiaire</h1></center>
@@ -285,27 +265,12 @@
                 <p><b>Mais fais sûr de te rappeler qu'il répondre à des questions de math, science, français et plus!</b></p>
             </div>
             <br>
-            <h1 style="color: #ffffff"><center>Choisi un type de sudoku</center></h1>
-            <center>
-            <div class="container">
-                <div class="box"><h2><center>4x4</center></h2></div>
-                <div class="box"><h2><a href="9X9Int.html">9x9</a></h2></div>
-            </div>
-            </center>
-        
-        <br><br>
-
-
-
-
-<d>
-Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
-</d>
-
-
-<br><br><br>
-
-
+            <h1 style="color: #ffd700"><center>Sudoku: 4x4</center></h1>
+<center>
+    <d><h3 style="color: #ffffff">
+        Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
+    </h2></d>
+</center>
         <center><table>
             <tr>
                 <td><center>🎄</center></td>
@@ -406,11 +371,12 @@ Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0
 
         <br><br>
        
-
-
+    <!--Vérifie le sudoku et laisse l'user recommencer le jeu-->
+    <center>
         <button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
         <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
     </center>
+    <!--Boîte qui va afficher des différents textets dépendant de la résultat du joeur-->
     <center><div id="divAffiche" style="font-size: 24px;"></div></center>
 
 
@@ -529,7 +495,7 @@ if (
 
        function verifierSolution() {
             if (entreeValide()) {
-            document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
+            document.getElementById("divAffiche").innerHTML = "Félicitations ! Vous avez résolu le puzzle !" 
             montreScore(1000)
             } else {
             document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";

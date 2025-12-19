@@ -215,6 +215,12 @@ div{
     body {
                 background-image: url(images/ChristmasBackground.jpg);
             }
+            d{
+                background-color: #ffffff;
+                width: 150px;
+                border: 1px solid #3e0afc;
+                padding: 5px;
+            }
         </style>
 	</head>
     <body  style="background-color: #32b3eb;">
@@ -265,7 +271,9 @@ div{
         
 
 
-<h3>Score: <span id="scoreDisplay">0</span></h3>
+<center><d>
+Meilleur score: <span id="highscore">0</span> | Score: <span id="afficheScore">0 </span> | Temps restant : <span id="time">03:00</span>
+</d></center>
 
 
         <center><table id="sudoku-board" class="sudoku-grid">
@@ -282,6 +290,9 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
+                <td><center>☃️</center></td>
+                <td><center>🎁</center></td>
+                <td><center>🦌</center></td>
                 <td><center><select id="case2">
                     <option></option>
                     <option>🍪</option>
@@ -294,7 +305,6 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
-                <td><center>❄️</center></td>
                 <td><center><select id="case3">
                     <option></option>
                     <option>🍪</option>
@@ -307,7 +317,6 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
-                <td><center>🌟</center></td>
                 <td><center><select id="case4">
                     <option></option>
                     <option>🍪</option>
@@ -320,6 +329,7 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
+                <td><center>🍪</center></td>
                 <td><center><select id="case5">
                     <option></option>
                     <option>🍪</option>
@@ -332,162 +342,163 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
+            </tr>
+            <tr>
+                <td><center>🎅</center></td>
                 <td><center><select id="case6">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case7">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-            </tr>
-
-            <tr>
-                <td><center><select id="case8">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case9">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case10">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case11">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case12">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center>☃️</center></td>
-                <td><center><select id="case13">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center>🎁</center></td>
-                <td><center><select id="case14">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-            </tr>
-
-            <tr>
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td>
                 <td><center>🌟</center></td>
                 <td><center>🍪</center></td>
-                <td><center><select id="case15">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center>🎅</center></td>  
+                <td><center><select id="case7">
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td>
+                <td><center>🥛</center></td>
+                <td><center><select id="case8">
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td>
+                    <td><center><select id="case9">
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td>
+                    <td><center><select id="case10">
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td> 
+            </tr>
+
+            <tr>
+                <td><center><select id="case11">
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td> 
+                    <td><center><select id="case12">
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td> 
+                    <td><center><select id="case13">
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td> 
+                    <td><center><select id="case14">
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td> 
+                    <td><center><select id="case15">
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td> 
+                <td><center>🎅</center></td>
                 <td><center><select id="case16">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case17">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center>🥛</center></td>  
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td> 
+                    <td><center><select id="case17">
+                        <option></option>
+                        <option>🍪</option>
+                        <option>🥛</option>
+                        <option>🎁</option>
+                        <option>🎄</option>
+                        <option>🎅</option>
+                        <option>🌟</option>
+                        <option>☃️</option>
+                        <option>❄️</option>
+                        <option>🦌</option>
+                    </select></center></td> 
+                <td><center>❄️</center></td>
+            </tr>
+            <tr>
                 <td><center><select id="case18">
                     <option></option>
                     <option>🍪</option>
@@ -512,9 +523,6 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
-            </tr>
-            <tr>
-                <td><center>🎄</center></td> 
                 <td><center><select id="case20">
                     <option></option>
                     <option>🍪</option>
@@ -539,6 +547,8 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
+                <td><center>🌟</center></td>
+                <td><center>🎁</center></td>
                 <td><center><select id="case22">
                     <option></option>
                     <option>🍪</option>
@@ -563,6 +573,12 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
+                <td><center>🥛</center></td>
+            </tr>
+            <tr>
+                <td><center>🥛</center></td>
+                <td><center>🎁</center></td>
+                <td><center>🎄</center></td>
                 <td><center><select id="case24">
                     <option></option>
                     <option>🍪</option>
@@ -574,7 +590,11 @@ div{
                     <option>☃️</option>
                     <option>❄️</option>
                     <option>🦌</option>
-                </select></center></td>
+                </select></center></td> 
+                <td><center>🦌</center></td>
+                <td><center>🍪</center></td>
+                <td><center>🎅</center></td>
+                <td><center>🌟</center></td>
                 <td><center><select id="case25">
                     <option></option>
                     <option>🍪</option>
@@ -586,7 +606,10 @@ div{
                     <option>☃️</option>
                     <option>❄️</option>
                     <option>🦌</option>
-                </select></center></td>
+                </select></center></td> 
+            </tr>
+            <tr>
+                <td><center>🦌</center></td>
                 <td><center><select id="case26">
                     <option></option>
                     <option>🍪</option>
@@ -599,6 +622,7 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
+                <td><center>🎅</center></td>
                 <td><center><select id="case27">
                     <option></option>
                     <option>🍪</option>
@@ -611,8 +635,15 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
+                <td><center>☃️</center></td> 
+                <td><center>🎄</center></td>
+                <td><center>🍪</center></td>
+                <td><center>❄️</center></td>
+                <td><center>🎁</center></td>
+               
             </tr>
             <tr>
+                <td><center>☃️</center></td> 
                 <td><center><select id="case28">
                     <option></option>
                     <option>🍪</option>
@@ -637,6 +668,7 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
+                <td><center>🎁</center></td>
                 <td><center><select id="case30">
                     <option></option>
                     <option>🍪</option>
@@ -661,7 +693,6 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
-                <td><center>🎅</center></td> 
                 <td><center><select id="case32">
                     <option></option>
                     <option>🍪</option>
@@ -698,11 +729,8 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
-                <td><center>🌟</center></td> 
             </tr>
             <tr>
-                <td><center>🥛</center></td> 
-                <td><center>🦌</center></td>
                 <td><center><select id="case35">
                     <option></option>
                     <option>🍪</option>
@@ -714,8 +742,9 @@ div{
                     <option>☃️</option>
                     <option>❄️</option>
                     <option>🦌</option>
-                </select></center></td> 
-                <td><center>🌟</center></td>
+                </select></center></td>
+                <td><center>🎅</center></td>
+                <td><center>🥛</center></td>
                 <td><center><select id="case36">
                     <option></option>
                     <option>🍪</option>
@@ -739,8 +768,7 @@ div{
                     <option>☃️</option>
                     <option>❄️</option>
                     <option>🦌</option>
-                </select></center></td> 
-                <td><center>🍪</center></td> 
+                </select></center></td>
                 <td><center><select id="case38">
                     <option></option>
                     <option>🍪</option>
@@ -753,6 +781,7 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
+                <td><center>❄️</center></td>
                 <td><center><select id="case39">
                     <option></option>
                     <option>🍪</option>
@@ -765,10 +794,9 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
+                <td><center>🦌</center></td>
             </tr>
-            <tr>
-                <td><center>🦌</center></td> 
-                <td><center>❄️</center></td>
+            <tr> 
                 <td><center><select id="case40">
                     <option></option>
                     <option>🍪</option>
@@ -793,7 +821,6 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
-                <td><center>🎁</center></td> 
                 <td><center><select id="case42">
                     <option></option>
                     <option>🍪</option>
@@ -818,7 +845,6 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
-                <td><center>🥛</center></td>
                 <td><center><select id="case44">
                     <option></option>
                     <option>🍪</option>
@@ -831,8 +857,9 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
-            </tr>
-            <tr>
+                <td><center>🦌</center></td>
+                <td><center>☃️</center></td>
+                <td><center>🎅</center></td>
                 <td><center><select id="case45">
                     <option></option>
                     <option>🍪</option>
@@ -845,202 +872,210 @@ div{
                     <option>❄️</option>
                     <option>🦌</option>
                 </select></center></td>
-                <td><center><select id="case46">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center>🎄</center></td> 
-                <td><center>🦌</center></td>
-                <td><center><select id="case47">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case48">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case49">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case50">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case51">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-            </tr>
-            <tr>
-                <td><center><select id="case52">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case53">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center>🎅</center></td> 
-                <td><center><select id="case54">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case55">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case56">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center>❄️</center></td>
-                <td><center><select id="case57">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td>
-                <td><center><select id="case58">
-                    <option></option>
-                    <option>🍪</option>
-                    <option>🥛</option>
-                    <option>🎁</option>
-                    <option>🎄</option>
-                    <option>🎅</option>
-                    <option>🌟</option>
-                    <option>☃️</option>
-                    <option>❄️</option>
-                    <option>🦌</option>
-                </select></center></td> 
-                
             </tr>
         </table></center>
 
         <br><br>
-        <center><button onclick="verifierSolution(); donneQuestion()">Vérifier la solution</button></center>
-        <center><div id="divAffiche"></div></center>
 
-<option></option>
+        <center><button onclick="verifierSolution(); donneQuestion()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Vérifier la solution</button>
+        <button onclick="recommence()" style="font-size: 20px; padding: 10px 20px; margin: 5px;">Recommence</button>
+    </center>
+    <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
+
+
 
         <script>
-        function entreeValides() {
-            const solutions = ["☃️", "🎁", "🥛", "🦌", "🎄", "🍪", "🎅", "🎅", "🎄", "🥛", "❄️", "🍪", "🌟", "🦌", "🦌", "🎄", "🎁", "❄️", "☃️", "🎅", "🌟", "🍪", "🦌", "❄️", "🎁", "☃️", "🥛", "❄️", "☃️", "🍪", "🎁", "🥛", "🦌", "🎄", "🎁", "☃️", "🎄", "🎅", "❄️", "☃️", "🎄", "🌟", "🎅", "🍪", "🍪", "🥛", "❄️", "🎅", "☃️", "🌟", "🎁", "🎁", "🌟", "☃️", "🥛", "🍪", "🦌", "🎄"];
-            for (let i = 0; i < solutions.length; i++) {
-            const caseId = "case" + (i + 1);
-            const userChoice = document.getElementById(caseId).value;
-            if (userChoice !== solutions[i]) {
-                return false;
-            }
-            }
-            return true;
+let score = 0;
+let timerInterval
+
+// HIGH SCORE SETUP
+function loadHighscore() {
+    const savedHigh = localStorage.getItem("highscore");
+    if (savedHigh !== null) {
+        document.getElementById("highscore").textContent = savedHigh;
+    }
+}
+
+function updateHighscore(finalScore) {
+    const currentHigh = parseInt(localStorage.getItem("highscore") || "0", 10);
+    if (finalScore > currentHigh) {
+        localStorage.setItem("highscore", finalScore.toString());
+        document.getElementById("highscore").textContent = finalScore;
+    }
+}
+
+https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+   timerInterval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            clearInterval(timerInterval);  // STOP instead of reset
+            document.getElementById("divAffiche").innerHTML = "Le temps est écoulé! La partie est finie.";
+            montreScore(-2000);
+           
         }
+    }, 1000);
+}
+
+function montreScore(pointage) {
+    score += pointage;
+    document.getElementById("afficheScore").textContent = score;
+    updateHighscore(score);
+}
+
+            function entreeValide() {
+    let idCase1 = document.getElementById("case1").value
+    let idCase2 = document.getElementById("case2").value
+    let idCase3 = document.getElementById("case3").value
+    let idCase4 = document.getElementById("case4").value
+    let idCase5 = document.getElementById("case5").value
+    let idCase6 = document.getElementById("case6").value
+    let idCase7 = document.getElementById("case7").value
+    let idCase8 = document.getElementById("case8").value
+    let idCase9 = document.getElementById("case9").value
+    let idCase10 = document.getElementById("case10").value
+    let idCase11 = document.getElementById("case11").value
+    let idCase12 = document.getElementById("case12").value
+    let idCase13 = document.getElementById("case13").value
+    let idCase14 = document.getElementById("case14").value
+    let idCase15= document.getElementById("case15").value
+    let idCase16= document.getElementById("case16").value
+    let idCase17= document.getElementById("case17").value
+    let idCase18= document.getElementById("case18").value
+    let idCase19= document.getElementById("case19").value
+    let idCase20= document.getElementById("case20").value
+    let idCase21= document.getElementById("case21").value
+    let idCase22 = document.getElementById("case22").value
+    let idCase23 = document.getElementById("case23").value
+    let idCase24 = document.getElementById("case24").value
+    let idCase25= document.getElementById("case25").value
+    let idCase26= document.getElementById("case26").value
+    let idCase27= document.getElementById("case27").value
+    let idCase28= document.getElementById("case28").value
+    let idCase29= document.getElementById("case29").value
+    let idCase30= document.getElementById("case30").value
+    let idCase31= document.getElementById("case31").value
+    let idCase32= document.getElementById("case32").value
+    let idCase33= document.getElementById("case33").value
+    let idCase34 = document.getElementById("case34").value
+    let idCase35 = document.getElementById("case35").value
+    let idCase36 = document.getElementById("case36").value
+    let idCase37 = document.getElementById("case37").value
+    let idCase38 = document.getElementById("case38").value
+    let idCase39 = document.getElementById("case39").value
+    let idCase40 = document.getElementById("case40").value
+    let idCase41 = document.getElementById("case41").value
+    let idCase42 = document.getElementById("case42").value
+    let idCase43 = document.getElementById("case43").value
+    let idCase44 = document.getElementById("case44").value
+    let idCase45 = document.getElementById("case45").value
+if (
+        (idCase1 == "❄️" )&&
+        (idCase2 == "🎄") &&
+        (idCase3 == "🌟") &&
+        (idCase4 == "🥛") &&
+        (idCase5 ==  "🎅") &&
+
+        (idCase6 == "🦌") &&
+        (idCase7 == "❄️") &&
+        (idCase8 == "🎁") &&
+        (idCase9 == "☃️") &&
+        (idCase10 == "🎄") &&
+
+        (idCase11 == "🎄") &&
+        (idCase12 == "🥛")&&
+        (idCase13 == "🍪")&&
+        (idCase14 == "☃️") &&
+        (idCase15 == "🎁") &&
+        (idCase16 == "🌟") &&
+        (idCase17 == "🦌") &&
+
+        (idCase18 == "🍪") &&
+        (idCase19 == "❄️") &&
+        (idCase20 == "☃️") &&
+        (idCase21 == "🎅") &&
+        (idCase22 == "🦌") &&
+        (idCase23 == "🎄") &&
+
+        (idCase24 == "❄️" )&&
+        (idCase25 == "☃️") &&
+
+        (idCase26 == "🌟") &&
+        (idCase27 == "🥛") &&
+
+        (idCase28 == "🍪") &&
+        (idCase29 == "🦌") &&
+        (idCase30 == "🎅") &&
+        (idCase31 == "❄️") &&
+        (idCase32 == "🎄") &&
+        (idCase33 == "🥛") &&
+        (idCase34 == "🌟") &&
+
+        (idCase35 == "🌟") &&
+        (idCase36 == "🎄") &&
+        (idCase37 == "🍪") &&
+        (idCase38 == "☃️") &&
+        (idCase39 == "🎁") &&
+
+        (idCase40 == "🎁") &&
+        (idCase41 == "🎄") &&
+        (idCase42 =="❄️") &&
+        (idCase43 == "🌟") &&
+        (idCase44 == "🥛") &&
+        (idCase45 == "🍪") 
+){
+    return true
+}else{
+    return false
+}
+}
 
         function verifierSolution() {
-            var affiche = document.getElementById("divAffiche");
             if (entreeValides()) {
-            message = "Félicitations ! Vous avez résolu le puzzle !";
+             document.getElementById("divAffiche").innerHTML = "Félicitations ! Vous avez résolu le puzzle !" 
             updateScore(1000)
+            clearInterval(timerInterval);
             } else {
-            message = "Certaines réponses sont incorrectes. Veuillez réessayer.";
-            updateScore(-500)
+            document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
+            montreScore(-300)
             }
-            affiche.innerHTML = message;
         }
+
+function recommence() {
+    clearInterval(timerInterval)
+    score=0
+    document.getElementById("afficheScore").textContent = score;
+    document.getElementById("divAffiche").innerHTML = "";
+   
+    // Reset inputs
+    for (let i = 1; i <= 45; i++) {
+        const cell = document.getElementById("case"+i);
+        if (cell) {
+            cell.value = "";
+        }
+    }
+   
+    // Restart YOUR timer
+    var troisMinutes = 60 * 5;
+    var display = document.querySelector('#time');
+    startTimer(troisMinutes, display);
+}
+
+window.onload = function () {
+    loadHighscore();
+    var troisMinutes = 60 * 5,
+    display = document.querySelector('#time');
+    startTimer(troisMinutes, display);
+};
+
 function styleSudokuBorders() {
     const table = document.getElementById('sudoku-board');
     if (!table) return;
@@ -1064,8 +1099,6 @@ function styleSudokuBorders() {
   }
   styleSudokuBorders();
 
-
-let score = 0;
 
 const questions = [
     {
