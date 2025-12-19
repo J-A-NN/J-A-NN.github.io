@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--Les commentaires pour les tableaux et le javascript son sur les documents de 9X9-->
 <html>
 
 
@@ -208,6 +208,12 @@
             body {
                 background-image: url(images/ChristmasBackground.jpg);
             }
+            d{
+                background-color: #ffffff;
+                width: 150px;
+                border: 1px solid #3e0afc;
+                padding: 5px;
+            }
         </style>
     </head>
     <body>
@@ -286,6 +292,7 @@
                 <option>🎄</option>
                 </select></center></td>
             </tr>
+
             <tr>
                 <td><center><select id="case4">
                     <option></option>
@@ -304,10 +311,6 @@
                 <td><center>🍪</center></td>
                 <td><center>🥛</center></td>
             </tr>
-
-
-
-
             <tr>
                 <td><center>🎄</center></td>
                 <td><center>🎁</center></td>
@@ -354,46 +357,17 @@
     <!--Boîte qui va afficher des différents textets dépendant de la résultat du joeur-->
     <center><div id="divAffiche" style="font-size: 24px; margin-top: 20px;"></div></center>
 
-
-
-
-
-
-
-
     <script>
 let score = 0;
-let timerInterval
+let tempsRestant
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// HIGH SCORE SETUP
 function loadHighscore() {
     const savedHigh = localStorage.getItem("highscore");
     if (savedHigh !== null) {
         document.getElementById("highscore").textContent = savedHigh;
     }
 }
-
-
-
-
-
-
-
 
 function updateHighscore(finalScore) {
     const currentHigh = parseInt(localStorage.getItem("highscore") || "0", 10);
@@ -403,48 +377,20 @@ function updateHighscore(finalScore) {
     }
 }
 
-
-
-
-
-
-
-
 https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
 function startTimer(duration, display) {
     let timer = duration, minutes, seconds;
-   timerInterval = setInterval(function () {
+   tempsRestant = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
-
-
-
-
-
-
-
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-
-
-
-
-
-
-
         display.textContent = minutes + ":" + seconds;
 
-
-
-
-
-
-
-
         if (--timer < 0) {
-            clearInterval(timerInterval);  // STOP instead of reset
+            clearInterval(tempsRestant);  
             document.getElementById("divAffiche").innerHTML = "Le temps est écoulé! La partie est finie.";
             montreScore(-2000);
            
@@ -452,15 +398,11 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-
-
-
 function montreScore(pointage) {
     score += pointage;
     document.getElementById("afficheScore").textContent = score;
     updateHighscore(score);
 }
-
 
 function entreeValide() {
     let idCase1 = document.getElementById("case1").value
@@ -494,7 +436,7 @@ if (
             if (entreeValide()) {
             document.getElementById("divAffiche").innerHTML = "Félicitations! Vous avez résolu le puzzle!";
             montreScore(500)
-            clearInterval(timerInterval);
+            clearInterval(tempsRestant);
             } else {
             document.getElementById("divAffiche").innerHTML  = "Certaines réponses sont incorrectes. Veuillez réessayer.";
             montreScore(-500)
@@ -504,12 +446,12 @@ if (
 
 
 function recommence() {
-    clearInterval(timerInterval)
+    clearInterval(tempsRestant)
     score=0
     document.getElementById("afficheScore").textContent = score;
     document.getElementById("divAffiche").innerHTML = "";
    
-    // Reset inputs
+
     for (let i = 1; i <= 9; i++) {
         const cell = document.getElementById("case"+i);
         if (cell) {
@@ -517,12 +459,10 @@ function recommence() {
         }
     }
    
-    // Restart YOUR timer
     var troisMinutes = 60 * 3;
     var display = document.querySelector('#time');
     startTimer(troisMinutes, display);
 }
-
 
 window.onload = function () {
     loadHighscore();
