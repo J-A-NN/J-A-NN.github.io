@@ -470,7 +470,7 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            clearInterval(timerInterval);  
+            clearInterval(tempsRestant);  
             document.getElementById("divAffiche").innerHTML = "Le temps est écoulé! La partie est finie.";
             montreScore(-2000);
            
